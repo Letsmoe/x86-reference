@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { GithubLogo } from "radix-svelte-icons";
+
+
+---
+
+<Layout title="Meta Compiler Language">
+	<div class="prose prose-xl w-full max-w-full">
+		<div class="max-w-screen-xl mx-auto">
+			<h1 class="text-8xl font-extrabold">Install META</h1>
+		</div>
+		<div class="hero bg-accent w-full">
+			<div class="max-w-screen-xl w-full">
+				<div class="w-full">
+					<h2 class="text-accent-content border-b-[16px] w-max border-b-neutral-content">Using metax (Recommended)</h2>
+					<p>It looks like you’re running macOS, Linux, or another Unix-like OS. To download Rustup and install Rust, run the following in your terminal, then follow the on-screen instructions</p>
+					<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="hero bg-base-100 w-full text-left">
+			<div class="max-w-screen-xl w-full">
+				<div class="w-full">
+					<h2 class="text-accent-content border-b-[16px] w-max border-b-primary">Notes about META installation</h2>
+					<h3>Getting Started</h3>
+					<p>If you're just getting started with META and would like a more detailed walk-through, see our getting started page.</p>
+					<h3>Toolchain management with <code>meta</code></h3>
+					<p>Rust is installed and managed by the rustup tool. Rust has a 6-week rapid release process and supports a great number of platforms, so there are many builds of Rust available at any time. rustup manages these builds in a consistent way on every platform that Rust supports, enabling installation of Rust from the beta and nightly release channels as well as support for additional cross-compilation targets.</p>
+					<p>If you've installed rustup in the past, you can update your installation by running rustup update.</p>
+					<p>For more information see the rustup documentation.</p>
+					<h3>Configuring the <code>PATH</code> environment variable</h3>
+					<p>In the Rust development environment, all tools are installed to the ~/.cargo/bin directory, and this is where you will find the Rust toolchain, including rustc, cargo, and rustup.</p>
+					<p>Accordingly, it is customary for Rust developers to include this directory in their PATH environment variable. During installation rustup will attempt to configure the PATH. Because of differences between platforms, command shells, and bugs in rustup, the modifications to PATH may not take effect until the console is restarted, or the user is logged out, or it may not succeed at all.</p>
+					<p>If, after installation, running rustc --version in the console fails, this is the most likely reason.</p>
+					<h3>Uninstall META</h3>
+					<p>If at any point you would like to uninstall Rust, you can run rustup self uninstall. We'll miss you though!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

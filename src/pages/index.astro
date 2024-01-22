@@ -1,16 +1,54 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import InstructionListModule from '../modules/InstructionListModule.svelte';
+import Layout from "../layouts/Layout.astro";
+import { GithubLogo } from "radix-svelte-icons";
 
-const instructions = await getCollection("x86");
+import Highlight from "svelte-highlight";
+import typescript from "svelte-highlight/languages/typescript";
 
-const dataInstructions = instructions.map(instruction => ({ data: instruction.data, slug: instruction.data.name }));
+const code = `
+.SYNTAX HELLO_WORLD
+
+HELLO_WORLD = "Hello, World!"
+
+.END
+`
 ---
 
-<Layout title="x86 Reference">
-	<h1>x86 Instruction set reference</h1>
-	<p>Here you can find all the instructions of the Intel x86 architecture.</p>
-	<p>Click on the instruction you want to know more about.</p>
-	<InstructionListModule instructions={dataInstructions} client:load />
+<Layout title="Meta Compiler Language">
+	<div class="prose prose-2xl w-full max-w-full">
+		<div class="hero min-h-[80vh] bg-base-100 w-full">
+			<div class="hero-content text-center flex-col">
+				<div>
+					<h1 class="text-8xl font-extrabold">META</h1>
+					<p>A simple yet powerful and <span>blazingly fast</span>, <span>easy to learn</span> and <span>adaptable</span> compiler writing language.</p>
+				</div>
+				<div class="flex flex-row gap-4">
+					<a class="btn btn-outline btn-lg no-underline" href="https://github.com/the-meta-lang" target="_blank"><GithubLogo size={24} />View on GitHub</a>
+					<a href="/install" class="btn btn-primary btn-lg no-underline">Get Started!</a>
+				</div>
+			</div>
+		</div>
+		<div class="hero min-h-[80vh] bg-base-200 w-full">
+			<div class="hero-content flex flex-col lg:flex-row gap-12 w-4/5">
+				<div class="w-2/3">
+					<h2>Fast</h2>
+					<p>Meta was built for speed! It's implementation is written directly in Assembly and optimized to make the most of it.</p>
+				</div>
+				<div class="mockup-code w-full">
+					<Highlight language={typescript} code={code}></Highlight>
+				</div>
+			</div>
+		</div>
+		<div class="hero min-h-[80vh] bg-base-100 w-full">
+			<div class="hero-content flex flex-col lg:flex-row-reverse gap-12 w-4/5">
+				<div class="w-2/3">
+					<h2>Extensible</h2>
+					<p>META is written using... META... It's a Metacompiler and will do anything you throw at it.</p>
+				</div>
+				<div class="mockup-code w-full">
+					<Highlight language={typescript} code={code}></Highlight>
+				</div>
+			</div>
+		</div>
+	</div>
 </Layout>

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import InstructionListModule from '../modules/InstructionListModule.svelte';
+
+const instructions = await getCollection("x86");
+
+const dataInstructions = instructions.map(instruction => ({ data: instruction.data, slug: instruction.data.name }));
+---
+
+<Layout title="x86 Reference">
+	<h1>x86 Instruction set reference</h1>
+	<p>Here you can find all the instructions of the Intel x86 architecture.</p>
+	<p>Click on the instruction you want to know more about.</p>
+	<InstructionListModule instructions={dataInstructions} client:load />
+</Layout>

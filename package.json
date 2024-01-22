@@ -26,6 +26,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/bun": "^1.0.3",
     "cheerio": "^1.0.0-rc.12",
-    "markdown-table": "^3.0.3"
+    "markdown-table": "^3.0.3",
+    "svelte-highlight": "^7.4.8"
   }
 }

@@ -7,7 +7,7 @@
 <button class="btn btn-square btn-ghost">
 	<label class="swap swap-rotate">
 		<!-- this hidden checkbox controls the state -->
-		<input type="checkbox" class="theme-controller" value="light" />
+		<input type="checkbox" class="theme-controller" value="dark" />
 	
 		<!-- sun icon -->
 		<Sun size={24} class="swap-on" />
