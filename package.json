@@ -1,0 +1,31 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/svelte": "^5.0.3",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.2.1",
+    "daisyui": "latest",
+    "fuse.js": "^7.0.0",
+    "radix-svelte-icons": "^1.0.0",
+    "svelte": "^4.2.9",
+    "svelte-markdown": "^0.4.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/bun": "^1.0.3",
+    "cheerio": "^1.0.0-rc.12",
+    "markdown-table": "^3.0.3"
+  }
+}

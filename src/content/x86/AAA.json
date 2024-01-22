@@ -1,0 +1,32 @@
+{
+	"name": "AAA",
+	"href": "/x86/aaa",
+	"description": "ASCII Adjust After Addition",
+	"instructionTypes": [
+		{
+			"opCode": "37",
+			"instruction": "AAA",
+			"operatorEncoding": "ZO",
+			"supports64BitMode": "Invalid",
+			"supportsCompatMode": "Valid",
+			"description": "ASCII adjust AL after addition."
+		}
+	],
+	"instructionOperandEncodings": [
+		{
+			"operatorEncoding": "ZO",
+			"operand1": "N/A",
+			"operand2": "N/A",
+			"operand3": "N/A",
+			"operand4": "N/A"
+		}
+	],
+	"longDescription": "Adjusts the sum of two unpacked BCD values to create an unpacked BCD result. The AL register is the implied source and destination operand for this instruction. The AAA instruction is only useful when it follows an ADD instruction that adds (binary addition) two unpacked BCD values and stores a byte result in the AL register. The AAA instruction then adjusts the contents of the AL register to contain the correct 1-digit unpacked BCD result.\n\nIf the addition produces a decimal carry, the AH register increments by 1, and the CF and AF flags are set. If there was no decimal carry, the CF and AF flags are cleared and the AH register is unchanged. In either case, bits 4 through 7 of the AL register are set to 0.\n\nThis instruction executes as described in compatibility mode and legacy mode. It is not valid in 64-bit mode.\n\n",
+	"operation": "IF 64-Bit Mode\n    THEN\n        #UD;\n    ELSE\n        IF ((AL AND 0FH) > 9) or (AF = 1)\n            THEN\n                AX := AX + 106H;\n                AF := 1;\n                CF := 1;\n            ELSE\n                AF := 0;\n                CF := 0;\n        FI;\n        AL := AL AND 0FH;\nFI;\n",
+	"flagsAffected": "The AF and CF flags are set to 1 if the adjustment results in a decimal carry; otherwise they are set to 0. The OF, SF, ZF, and PF flags are undefined.",
+	"protectedModeExceptions": "\n<tbody><tr>\n<td>#UD</td>\n<td>If the LOCK prefix is used.</td></tr></tbody>",
+	"realAddressModeExceptions": null,
+	"virtual8086ModeExceptions": null,
+	"compatibilityModeExceptions": null,
+	"mode64BitExceptions": "\n<tbody><tr>\n<td>#UD</td>\n<td>If in 64-bit mode.</td></tr></tbody>"
+}
