@@ -6,5 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte(), tailwind()],
-	site: "https://meta-lang.com"
+	site: "https://meta-lang.com",
+	output: "server"
 });

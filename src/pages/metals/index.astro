@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { GithubLogo } from "radix-svelte-icons";
 
 import Highlight from "svelte-highlight";
@@ -17,20 +17,20 @@ HELLO_WORLD = "Hello, World!"
 <Layout title="Meta Compiler Language">
 	<div class="hero min-h-[80vh] bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
-			<div class="flex items-center flex-col">
-				<img src="/images/logo.svg" alt="META" class="my-0" width="600">
+			<div>
+				<h1 class="text-8xl font-extrabold">METALS</h1>
 				<p>
-					Experience META, a compiler writing language that effortlessly combines simplicity with power, boasting blazingly fast performance. Unlock its easy learning curve and adaptability for a seamless coding experience.
+					Language specification for the META intermediate language.
 				</p>
 			</div>
 			<div class="flex flex-row gap-4">
 				<a
 					class="btn btn-outline btn-lg no-underline"
-					href="https://github.com/the-meta-lang"
+					href="https://github.com/the-meta-lang/metals"
 					target="_blank"><GithubLogo size={24} />View on GitHub</a
 				>
-				<a href="/install" class="btn btn-primary btn-lg no-underline"
-					>Get Started!</a
+				<a href="/docs/metals" class="btn btn-primary btn-lg no-underline"
+					>Learn More!</a
 				>
 			</div>
 		</div>

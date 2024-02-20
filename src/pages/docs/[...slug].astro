@@ -1,0 +1,40 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
+import HeadingTree from "../../components/HeadingTree.svelte";
+
+const slug = Astro.params.slug
+
+const articles = await getCollection("docs", (entry) => entry.slug == slug);
+
+if (articles.length == 0 || articles.length > 1) {
+	return Astro.redirect("/404")
+}
+
+async function getArticleParents(article: CollectionEntry<"docs">): Promise<CollectionEntry<"docs">[]> {
+		const matching = await getCollection("docs", (entry) => entry.slug == article.slug.split("/").slice(0, -1).join("/"));
+
+		if (matching.length == 0) {
+			return []
+		}
+
+		const parent = matching[0]
+		return [parent, ...await getArticleParents(parent)]
+}
+
+const article = articles[0];
+// Recursively resolve all parent directories of this article
+const parents = [...await getArticleParents(article), article	]
+
+const {Content, headings} = await article.render()
+
+---
+
+<DocumentationLayout title={article.data.title} listOfTitles={parents}>
+	<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-8 px-8">
+		<article>
+			<Content></Content>
+		</article>
+		<HeadingTree headings={headings} client:load></HeadingTree>
+	</div>
+</DocumentationLayout>

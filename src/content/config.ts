@@ -32,13 +32,25 @@ export const x86CollectionSchema = z.object({
 	mode64BitExceptions: z.string().nullable(),
 });
 
+export const docsCollectionSchema = z.object({
+	title: z.string(),
+	author: z.string(),
+	description: z.string()
+})
+
 // 2. Define your collection(s)
 const x86Collection = defineCollection({
 	type: "data",
 	schema: x86CollectionSchema,
 });
+
+const docsCollection = defineCollection({
+	type: "content",
+	schema: docsCollectionSchema
+})
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
 	x86: x86Collection,
+	docs: docsCollection
 };

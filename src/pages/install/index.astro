@@ -1,21 +1,22 @@
 ---
+import { Highlight } from "svelte-highlight";
 import Layout from "../../layouts/Layout.astro";
-import { GithubLogo } from "radix-svelte-icons";
+import { bash } from "svelte-highlight/languages";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 
 
 ---
 
-<Layout title="Meta Compiler Language">
-	<div class="prose prose-xl w-full max-w-full">
+<ContentLayout title="Meta Compiler Language">
 		<div class="max-w-screen-xl mx-auto">
 			<h1 class="text-8xl font-extrabold">Install META</h1>
 		</div>
-		<div class="hero bg-accent w-full">
+		<div class="hero bg-accent w-full pb-12">
 			<div class="max-w-screen-xl w-full">
 				<div class="w-full">
 					<h2 class="text-accent-content border-b-[16px] w-max border-b-neutral-content">Using metax (Recommended)</h2>
 					<p>It looks like you’re running macOS, Linux, or another Unix-like OS. To download Rustup and install Rust, run the following in your terminal, then follow the on-screen instructions</p>
-					<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+					<div class="mockup-code"><Highlight language={bash} code={`curl --proto '=https' --tlsv1.2 -sSf https://meta-lang.com/sh | sh`} /></div>
 				</div>
 			</div>
 		</div>
@@ -38,5 +39,4 @@ import { GithubLogo } from "radix-svelte-icons";
 				</div>
 			</div>
 		</div>
-	</div>
-</Layout>
+</ContentLayout>
