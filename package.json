@@ -13,14 +13,19 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/ubuntu-mono": "^5.0.18",
+    "@uiw/codemirror-theme-gruvbox-dark": "^4.21.22",
+    "ansi-to-html": "^0.7.2",
     "astro": "^4.2.1",
     "daisyui": "latest",
     "fuse.js": "^7.0.0",
     "radix-svelte-icons": "^1.0.0",
     "svelte": "^4.2.9",
+    "svelte-codemirror-editor": "^1.2.0",
     "svelte-markdown": "^0.4.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "xterm": "^5.3.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

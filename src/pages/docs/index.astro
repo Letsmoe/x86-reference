@@ -5,10 +5,36 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 ---
 
 <DocumentationLayout title="Documentation" listOfTitles={[]}>
-	<div class="max-w-screen-xl mx-auto">
-		<h1 class="text-8xl font-extrabold">Documentation</h1>
+	<div class="max-w-screen-xl mx-auto px-8">
+		<h1 class="text-4xl md:text-6xl font-extrabold">Documentation</h1>
 	</div>
-	<div class="hero bg-accent w-full pb-12">
 
+	<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-8">
+		<a href="/docs/meta-vm" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-primary transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<div class="card-body">
+				<h2 class="card-title !mt-4 !mb-2">Meta-VM</h2>
+				<p>Virtual Machine for using Meta on any platform.</p>
+			</div>
+		</a>
+		<a href="/docs/meta-x" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-secondary transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<div class="card-body">
+				<h2 class="card-title !mt-4 !mb-2">MetaX</h2>
+				<p>Meta Executable.</p>
+			</div>
+		</a>
+		<a href="/docs/metals" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-accent transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<div class="card-body">
+				<h2 class="card-title !mt-4 !mb-2">Metals</h2>
+				<p>Common language specification for the Meta Compiler Toolchain.</p>
+			</div>
+		</a>
+		<a href="/docs/meta" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-slate-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<div class="card-body">
+				<h2 class="card-title !mt-4 !mb-2">META Syntax</h2>
+				<p>Syntax reference for writing compilers using META.</p>
+			</div>
+		</a>
 	</div>
+
+	
 </DocumentationLayout>

@@ -12,14 +12,19 @@ if (articles.length == 0 || articles.length > 1) {
 }
 
 async function getArticleParents(article: CollectionEntry<"docs">): Promise<CollectionEntry<"docs">[]> {
-		const matching = await getCollection("docs", (entry) => entry.slug == article.slug.split("/").slice(0, -1).join("/"));
-
-		if (matching.length == 0) {
-			return []
+		let slugComponents = article.slug.split("/")
+		const collection = await getCollection("docs");
+		const parents = []
+		for (let i = 0; i < slugComponents.length; i++) {
+			const adjustedSlug = slugComponents.slice(0, -i).join("/");
+			for (const entry of collection) {
+				if (entry.slug == adjustedSlug) {
+					parents.push(entry)
+				}
+			}
 		}
 
-		const parent = matching[0]
-		return [parent, ...await getArticleParents(parent)]
+		return parents.reverse()
 }
 
 const article = articles[0];
@@ -38,3 +43,10 @@ const {Content, headings} = await article.render()
 		<HeadingTree headings={headings} client:load></HeadingTree>
 	</div>
 </DocumentationLayout>
+
+
+<style is:global>
+	article pre {
+		@apply !p-6;
+	}
+</style>
