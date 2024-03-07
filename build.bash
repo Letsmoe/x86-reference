@@ -1,3 +1,4 @@
+bun install
 bun run build
 
 # Update crontab 
