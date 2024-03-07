@@ -1,0 +1,31 @@
+---
+import semver from "semver";
+
+let version = semver.coerce(Astro.params.version, {
+	includePrerelease: true
+});
+let platform = Astro.params.platform;
+
+if (!semver.valid(version)) {
+	return new Response('Invalid version specified, please make sure the version number follows the semantic versioning schema: e.g. 1.0.0 or v1.0.0', { status: 400 });
+}
+
+if (!platform) {
+	return new Response('No platform specified', { status: 400 });
+}
+
+const url = `https://github.com/the-meta-lang/meta/releases/download/v${version}/meta-${platform}.zip`;
+
+const request = await fetch(url);
+
+if (request.status !== 200) {
+	return new Response('Version not found or invalid platform specified.', { status: 404 });
+}
+
+return new Response(request.body, {
+	headers: {
+		'Content-Type': 'application/zip',
+		'Content-Disposition': `attachment; filename=meta-${version}.zip`
+	}
+})
+---
