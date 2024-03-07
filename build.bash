@@ -1,3 +1,5 @@
+bun run build
+
 # Update crontab 
 echo $(cat ./crontab) | crontab -
 

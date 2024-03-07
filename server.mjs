@@ -1,6 +1,7 @@
 import express from 'express';
 import https from 'https';
 import { handler as ssrHandler } from './dist/server/entry.mjs';
+import * as fs from "fs"
 
 const app = express();
 
