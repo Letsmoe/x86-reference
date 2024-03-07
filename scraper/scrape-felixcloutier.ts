@@ -14,20 +14,20 @@ import { writeInstruction } from "./write-instruction";
 
 	const instructions = instructionNames.map((name, index) => ({
 		name: $(name).text(),
-		href: $(name).find("a").attr("href"),
+		href: $(name).find("a").attr("href") as string,
 		description: $(instructionDescriptions[index]).text(),
 	}));
 
 	for (let i = 0; i < instructions.length; i++) {
 		const instruction = instructions[i];
 
-		if (!instruction.href) {
+		if (instruction.href) {
+			const result = await scrapeInstruction(instruction)
+
+			await writeInstruction(result)
+		} else {
 			throw new Error(`No href for instruction ${instruction.name}`)
 		}
-
-		const result = await scrapeInstruction(instruction)
-
-		await writeInstruction(result)
 	}
 })()
 
