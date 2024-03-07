@@ -1,0 +1,1 @@
+@reboot sh -c 'cd ~/meta-lang.com && pm2 start server.mjs'
