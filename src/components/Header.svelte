@@ -29,7 +29,7 @@
 			</div> 
 			<div class="drawer-side">
 				<label for="header-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-				<ul class="menu p-4 w-80 min-h-full bg-base-200 z-20 text-base-content">
+				<ul class="menu p-4 w-80 min-h-full bg-base-200 z-50 text-base-content">
 					<li><a href="/install" class="link link-hover">Install</a></li>
 					<li><a href="/docs" class="link link-hover">Documentation</a></li>
 					<li><a href="/playground" class="link link-hover">Playground</a></li>

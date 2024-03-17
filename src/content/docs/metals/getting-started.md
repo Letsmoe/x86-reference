@@ -1,5 +1,5 @@
 ---
-title: Getting Started | Metals
+title: Getting Started
 author: Moritz Utcke
 description: awd
 ---

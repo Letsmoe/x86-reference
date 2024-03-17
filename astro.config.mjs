@@ -12,7 +12,7 @@ export default defineConfig({
   output: "server",
   markdown: {
     shikiConfig: {
-      langs: [metaTextmateGrammar]
+      langs: [metaTextmateGrammar, "js", "python", "asm", "cpp", "c", "lisp"]
     }
   },
 	base: "/",

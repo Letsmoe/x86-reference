@@ -1,83 +1,70 @@
 ---
-title: META Language Specification
+title: METALS
 author: Moritz Utcke
 description: awd
 ---
 
-# METALS Intermediate Language Specification
+# METALS
 
-## Overview
+This document outlines the specifications for METALS, an intermediate language designed to facilitate the translation of high-level source code to machine code and back. METALS aims to provide a platform-independent representation that allows for efficient code optimization and generation.
+Other than most IRs, METALS was made to provide a translation layer between different languages.
+When converting to METALS, enough information is retained to convert the input code to another high-level language.
+Considering that, METALS may also be used as a rosetta intermediate layer for converting one high-level language to another.
 
-This document outlines the specifications for METALS, an intermediate programming language designed to facilitate the translation of high-level source code to machine code. METALS aims to provide a platform-independent representation that allows for efficient code optimization and generation.
+Let's look at an example:
+The following JavaScript code will be converted to METALS. Then another [backend](./03-backends/01-what-are-backends) will take over and convert the intermediate representation to Python.
 
-## Table of Contents
+> Please note that decompiling is not perfect and might result in sub-optimal code. The code will work and might even be faster than handwritten code in some circumstances but in decompiling the human-readability might suffer a lot. METALS was designed to mitigate this issue or at the very least make it less obvious, but it's **NOT PERFECT**.
 
-- [METALS Intermediate Language Specification](#metals-intermediate-language-specification)
-	- [Overview](#overview)
-	- [Table of Contents](#table-of-contents)
-	- [1. Introduction](#1-introduction)
-	- [2. Syntax](#2-syntax)
-	- [3. Semantics](#3-semantics)
-	- [4. Data Types](#4-data-types)
-	- [5. Operators](#5-operators)
-	- [6. Control Flow](#6-control-flow)
-	- [7. Functions](#7-functions)
-	- [8. Memory Management](#8-memory-management)
-	- [9. Built-in Functions](#9-built-in-functions)
-	- [10. Standard Library](#10-standard-library)
-	- [11. Toolchain Integration](#11-toolchain-integration)
-	- [12. Example Code](#12-example-code)
-	- [13. Appendix](#13-appendix)
+**Source (JavaScript)**
 
-## 1. Introduction
+```js
+// program to display fibonacci sequence using recursion
+function fibonacci(num) {
+    if(num < 2) {
+        return num;
+    }
+    else {
+        return fibonacci(num-1) + fibonacci(num - 2);
+    }
+}
+```
 
-[Placeholder for an introduction to METALS, including its purpose, goals, and use cases.]
+**Intermediate representation (METALS)**
 
-## 2. Syntax
+```metals
+fn fibonacci(i32 @num) {
+	if (
+		%lt @num, 2
+	) {
+		%return @num
+	} else {
+		$: fibonacci(@num - 1) + fibonacci(@num - 2)
+		%return $
+	}
+}
+```
 
-[Placeholder for the syntax rules and conventions of METALS.]
+**Target (Python)**
 
-## 3. Semantics
+```python
+def fibonacci(num):
+	if (num < 2):
+		return num
+	else:
+		return fibonacci(num - 1) + fibonacci(num - 2)
+```
 
-[Placeholder for the semantics of METALS, explaining the meaning and behavior of different constructs.]
+**Target (Lisp)**
 
-## 4. Data Types
+```lisp
+(defun fibonacci (num)
+	(if (< num 2)
+		(return-from fibonacci num)
+		(return-from fibonacci (+ (fibonacci (- num 1)) (fibonacci (- num 2))))))
+```
 
-[Placeholder for a description of the supported data types in METALS.]
+As you can see in the example using lisp, the resulting code is not perfect. Instead of using `return-from fibonacci` we could have simply used `num`  and `(+ (fibonacci (- num 1)) (fibonacci (- num 2)))` respectively as lisp returns the last expression by default.
+However, these results will get better as backends adapt to more edge cases.
 
-## 5. Operators
-
-[Placeholder for information on the operators available in METALS.]
-
-## 6. Control Flow
-
-[Placeholder for details on control flow statements in METALS.]
-
-## 7. Functions
-
-[Placeholder for specifications regarding function declarations, definitions, and calling conventions in METALS.]
-
-## 8. Memory Management
-
-[Placeholder for information on memory management in METALS, including allocation and deallocation mechanisms.]
-
-## 9. Built-in Functions
-
-[Placeholder for a list and description of built-in functions provided by METALS.]
-
-## 10. Standard Library
-
-[Placeholder for details on the standard library functions and modules available in METALS.]
-
-## 11. Toolchain Integration
-
-[Placeholder for information on how METALS integrates with various toolchains and compilers.]
-
-## 12. Example Code
-
-[Placeholder for illustrative examples showcasing METALS syntax and features.]
-
-## 13. Appendix
-
-[Placeholder for any additional information, references, or supplementary details.]
-
+> Before transitioning larger snippets or even projects please make sure that the transforming and receiving backend have been implemented to such a point where the stdlib of your source and target language have been fully implemented, otherwise some functionality might be lost.

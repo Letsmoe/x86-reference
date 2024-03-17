@@ -2,6 +2,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 import HeadingTree from "../../components/HeadingTree.svelte";
+import CollectionTree from "components/CollectionTree.svelte";
+import { getArticleTree } from "lib/getArticleTree";
 
 const slug = Astro.params.slug
 
@@ -33,14 +35,24 @@ const parents = [...await getArticleParents(article), article	]
 
 const {Content, headings} = await article.render()
 
+const collection = await getCollection("docs");
+const tree = getArticleTree(collection)
+
 ---
 
 <DocumentationLayout title={article.data.title} listOfTitles={parents}>
-	<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-8 px-8">
-		<article>
+	<div class="grid grid-cols-1 xl:grid-cols-[1fr_3fr_1fr] gap-16">
+		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose">
+			<ul class="menu px-4 sticky py-8 top-0 min-h-full bg-base-100 border-r-2 border-r-base-200 text-base-content">
+				<CollectionTree tree={tree}></CollectionTree>
+			</ul>
+		</div>
+		<article class="my-8 px-4">
 			<Content></Content>
 		</article>
-		<HeadingTree headings={headings} client:load></HeadingTree>
+		<div class="my-8">
+			<HeadingTree headings={headings} client:load></HeadingTree>
+		</div>
 	</div>
 </DocumentationLayout>
 
