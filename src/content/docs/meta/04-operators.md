@@ -27,7 +27,7 @@ If you're not familiar with types in META please consider [reading about types h
 ```meta
 var name: char[5,]; // Will initially reserve 5 bytes of space but will allow it to expand indefinitely 
 
-RULE = "ls" .ID [set name *] .STRING
+RULE = .ID [set name *] .STRING
 	->(*name " says " *);
 ```
 
