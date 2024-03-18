@@ -4,23 +4,12 @@ import metaTextmateGrammar from "./schemas/meta.textmate.json";
 import tailwind from "@astrojs/tailwind";
 import node from "@astrojs/node";
 import { remarkWikiLink } from '@portaljs/remark-wiki-link';
-import mdx from "@astrojs/mdx";
 const pageUrlPathPrefix = "docs/";
 
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind(), mdx({
-		remarkPlugins: [[remarkWikiLink, {
-      pathFormat: "obsidian-absolute",
-      wikiLinkResolver: slug => {
-        pageUrlPathPrefix + slug;
-      }
-    }]],
-    shikiConfig: {
-      langs: [metaTextmateGrammar, "js", "python", "asm", "cpp", "c", "lisp", "json"]
-    }
-	})],
+  integrations: [svelte(), tailwind()],
   site: "https://meta-lang.com",
   output: "server",
   markdown: {
