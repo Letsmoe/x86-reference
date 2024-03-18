@@ -4,7 +4,6 @@ import DocumentationHeaderAppendix from '../components/DocumentationHeaderAppend
 import Footer from '../components/Footer.svelte';
 import Header from '../components/Header.svelte';
 import "../style/global.css"
-import CollectionTree from 'components/CollectionTree.svelte';
 import { getArticleTree } from 'lib/getArticleTree';
 interface Props {
 	title: string;
@@ -16,6 +15,10 @@ const { title, listOfTitles } = Astro.props;
 const collection = await getCollection("docs")
 
 const tree = getArticleTree(collection)
+const slug = Astro.url.pathname.replace(/\/docs\//, "")
+
+const lightTheme = Astro.cookies.get('light')?.boolean() || false;
+
 ---
 
 <!doctype html>
@@ -29,8 +32,8 @@ const tree = getArticleTree(collection)
 		<title>{title}</title>
 	</head>
 	<body class="w-full min-h-screen">
-		<Header client:load></Header>
-		<DocumentationHeaderAppendix listOfTitles={listOfTitles} tree={tree}></DocumentationHeaderAppendix>
+		<Header client:load lightTheme={lightTheme}></Header>
+		<DocumentationHeaderAppendix listOfTitles={listOfTitles} tree={tree} slug={slug}></DocumentationHeaderAppendix>
 		<main class="w-full max-w-full">
 			<div class="prose prose-lg md:prose-xl prose-pre:my-0 prose-pre:py-0 prose-pre:leading-5 w-full max-w-full">
 				<slot />

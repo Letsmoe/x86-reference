@@ -3,13 +3,11 @@
 	import type { CollectionEntry } from "astro:content"
 	import { HamburgerMenu } from "radix-svelte-icons";
 	import CollectionTree from "./CollectionTree.svelte";
-	import { getArticleTree } from "lib/getArticleTree";
 
 	export let listOfTitles: CollectionEntry<"docs">[];
 
 	export let tree: RecursiveArticleTree;
-
-
+	export let slug: string;
 </script>
 
 <nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-6 sticky top-[80px] z-10">
@@ -31,7 +29,7 @@
 			<div class="drawer-side">
 				<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 				<ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-					<CollectionTree tree={tree}></CollectionTree>
+					<CollectionTree tree={tree} {slug}></CollectionTree>
 				</ul>
 			</div>
 		</div>

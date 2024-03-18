@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 ---
 
 <!doctype html>
@@ -18,7 +19,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header client:load></Header>
+		<Header client:load lightTheme={lightTheme}></Header>
 		<main>
 			<article class="my-8 mx-auto max-w-screen-lg prose prose-base">
 				<slot />

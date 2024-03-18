@@ -3,24 +3,27 @@
 	import { onMount } from "svelte";
 
 	export let headings: (MarkdownHeading & {highlighted?: boolean})[];
+	let headingElements: HTMLElement[] = [];
+
+	onMount(() => {
+		headingElements = headings.map(heading => {
+			return document.getElementById(heading.slug);
+		}) as HTMLElement[]
+	})
 
 	function findElementToHighlight() {
-		// Find the scroll height and corresponding heading
-		const scrollHeight = window.scrollY;
+		const boundingBoxes = headingElements.map(headingElement => {
+			if (!headingElement) return { top: Infinity, bottom: Infinity };
+			return headingElement.getBoundingClientRect();
+		})
 
-		for (let i = 0; i < headings.length; i++) {
-			const heading = headings[i];
-			const headingElement = document.getElementById(heading.slug);
+		// Find the bounding box closest to zero
+		const closestToZero = boundingBoxes.reduce(function(prev, curr) {
+			return (Math.abs(curr.top) < Math.abs(prev.top) ? curr : prev);
+		});
 
-			if (!headingElement) continue;
-
-			const boundingBox = headingElement.getBoundingClientRect()
-
-			if (boundingBox.top > scrollHeight) {
-				highlightedIndex = i;
-				break;
-			}
-		}
+		const index = boundingBoxes.indexOf(closestToZero);
+		highlightedIndex = index;
 	}
 
 	let highlightedIndex = 0;

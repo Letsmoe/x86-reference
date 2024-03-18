@@ -2,19 +2,20 @@
 	import type { RecursiveArticleTree } from "./types"
 
   export let tree: RecursiveArticleTree;
+	export let slug: string;
 </script>
 
 {#if tree}
-    <ul class="ml-4">
+    <ul class="ml-2">
       {#each Object.entries(tree) as [key, node]}
         {#if node.entry}
           <li>
-            <a href={`/docs/${node.entry.slug}`}>{node.entry.data.title}</a>
+            <a href={`/docs/${node.entry.slug}`} class:bg-secondary={node.entry.slug == slug}>{node.entry.data.title}</a>
           </li>
         {/if}
 				{#if Object.keys(node.children).length > 0}
           <li>
-            <svelte:self tree={node.children} />
+            <svelte:self tree={node.children} {slug} />
           </li>
         {/if}
       {/each}

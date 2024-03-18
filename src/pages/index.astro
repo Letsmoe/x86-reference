@@ -1,53 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro"
 import { GithubLogo } from "radix-svelte-icons";
-
-import Highlight from "svelte-highlight";
-import typescript from "svelte-highlight/languages/typescript";
-
-
-
-const code = `
-.SYNTAX HELLO_WORLD
-
-HELLO_WORLD = "Hello, World!"
-
-.END
-`;
 ---
 
 <Layout title="Meta Compiler Language">
 	<div class="hero min-h-[80vh] bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
 			<div class="flex items-center flex-col">
-				<img src="/images/logo.svg" alt="META" class="my-0" width="600">
+				<img src="/images/logo.svg" alt="META" class="my-0" width="600"></img>
 				<p>
-					Experience META, a compiler writing language that effortlessly combines simplicity with power, boasting blazingly fast performance. Unlock its easy learning curve and adaptability for a seamless coding experience.
+					The compiler writing toolchain that combines simplicity with power.
 				</p>
 			</div>
-			<div class="flex flex-row gap-4">
+			<div class="flex flex-col md:flex-row gap-4">
 				<a
 					class="btn btn-outline btn-lg no-underline"
 					href="https://github.com/the-meta-lang"
-					target="_blank"><GithubLogo size={24} />View on GitHub</a
-				>
+					target="_blank"><GithubLogo size={24} />View on GitHub</a>
 				<a href="/install" class="btn btn-primary btn-lg no-underline"
-					>Get Started!</a
-				>
+					>Get Started!</a>
 			</div>
 		</div>
 	</div>
 	<div class="hero min-h-[80vh] bg-base-200 w-full">
-		<div class="hero-content flex flex-col lg:flex-row gap-12 w-4/5">
-			<div class="w-2/3">
-				<h2>Fast</h2>
+		<div class="hero-content flex flex-col lg:flex-row">
+			<div class="w-full">
+				<h2>Stup** Fast</h2>
 				<p>
 					Meta was built for speed! It's implementation is written
 					directly in Assembly and optimized to make the most of it.
+					META can compile itself in just under <strong>3 Milliseconds</strong>, that's about as long as it takes the Typescript Compiler to load it's help page.
 				</p>
-			</div>
-			<div class="mockup-code w-full">
-				<Highlight language={typescript} code={code} />
+				<p>We would like to display comparisons here but there is really nothing else like it...</p>
 			</div>
 		</div>
 	</div>
@@ -58,12 +42,48 @@ HELLO_WORLD = "Hello, World!"
 			<div class="w-2/3">
 				<h2>Extensible</h2>
 				<p>
-					META is written using... META... It's a Metacompiler and
-					will do anything you throw at it.
+					You can build just about anything with META. It was designed from the ground up to make it easy to build new languages and tools.
 				</p>
 			</div>
 			<div class="mockup-code w-full">
-				<Highlight language={typescript} code={code} />
+			</div>
+		</div>
+	</div>
+	<div class="hero min-h-[80vh] bg-base-200 w-full">
+		<div
+			class="hero-content flex flex-col lg:flex-row-reverse"
+		>
+			<div class="w-full">
+				<h2>Well documented</h2>
+				<p>
+					It's easy to get lost when learning new languages. META comes with a comprehensive documentation so that you don't get lost in the process. Getting started is easy and you will see results right away!
+				</p>
+				<a class="btn btn-accent btn-lg no-underline" href="/docs">View Documentation</a>
+			</div>
+		</div>
+	</div>
+	<div class="hero min-h-[80vh] bg-base-100 w-full">
+		<div
+			class="hero-content flex flex-col text-center"
+		>
+			<h2>METALS</h2>
+			<p>Languages that have compilers written in META for the METALS Intermediate Representation. All of these support decompilation into other languages.</p>
+			<div class="flex flex-row gap-16">
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/javascript-logo.svg" alt="JavaScript" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/python-logo-no-text.svg" alt="Python" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/c-logo.svg" alt="C" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/gyro-logo.svg" alt="Gyro" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/cpp-logo.svg" alt="C++" class="w-48 h-48 brightness-50">
+				</div>
 			</div>
 		</div>
 	</div>
