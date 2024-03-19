@@ -32,7 +32,7 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 		<title>{title}</title>
 	</head>
 	<body class="w-full min-h-screen">
-		<Header client:load lightTheme={lightTheme}></Header>
+		<Header client:load lightThemeEnabled={lightTheme}></Header>
 		<DocumentationHeaderAppendix listOfTitles={listOfTitles} tree={tree} slug={slug}></DocumentationHeaderAppendix>
 		<main class="w-full max-w-full">
 			<div class="prose prose-lg md:prose-xl prose-pre:my-0 prose-pre:py-0 prose-pre:leading-5 w-full max-w-full">

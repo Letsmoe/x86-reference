@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/the-meta-lang/meta-lang.com">
-    <img src="./public/images/logo.svg" alt="Logo" width="120" height="120">
+    <img src="./public/logo-modern-dark.svg" alt="Logo" width="300" height="300">
   </a>
 
 <h3 align="center"><a href="https://meta-lang.com">meta-lang.com</a></h3>

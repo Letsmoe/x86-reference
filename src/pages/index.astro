@@ -1,15 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import { GithubLogo } from "radix-svelte-icons";
+import ReactiveImage from "../components/ReactiveImage.svelte"
 ---
 
 <Layout title="Meta Compiler Language">
 	<div class="hero min-h-[80vh] bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
 			<div class="flex items-center flex-col">
-				<img src="/images/logo.svg" alt="META" class="my-0" width="600"></img>
+				<ReactiveImage srcdark="/logo-modern-dark.svg" srclight="/logo-modern.svg" client:load></ReactiveImage>
 				<p>
-					The compiler writing toolchain that combines simplicity with power.
+					Writing compilers has never been easier. META is a high-level language and toolchain that makes compiler engineering accessible to everyone.
 				</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-4">
@@ -27,11 +28,11 @@ import { GithubLogo } from "radix-svelte-icons";
 			<div class="w-full">
 				<h2>Stup** Fast</h2>
 				<p>
-					Meta was built for speed! It's implementation is written
+					Meta was built for speed! It is written
 					directly in Assembly and optimized to make the most of it.
-					META can compile itself in just under <strong>3 Milliseconds</strong>, that's about as long as it takes the Typescript Compiler to load it's help page.
+					META can compile itself in just under <strong>2 Milliseconds</strong>, that's about as long as it takes others compilers to load their <code>--help</code> page.
 				</p>
-				<p>We would like to display comparisons here but there is really nothing else like it...</p>
+				<p>To put that into perspective, META could compile itself recursively <strong>250 times</strong> without you even noticing any stutters while <strong>live reloading</strong></p>
 			</div>
 		</div>
 	</div>

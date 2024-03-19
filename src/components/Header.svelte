@@ -1,21 +1,24 @@
 <script lang="ts">
 	import { HamburgerMenu } from "radix-svelte-icons";
 	import ThemeController from "./ThemeController.svelte";
+	import { lightMode } from "./shared";
 
-	export let lightTheme: boolean;
+	export let lightThemeEnabled: boolean = true;
+
+	lightMode.set(lightThemeEnabled);
 </script>
 
 <nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-10">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
 		<a href="/" class="link link-hover text-xl hidden md:block">
-			{#if lightTheme}
+			{#if $lightMode}
 				<img src="/images/logo-light-mode.svg" width="54" alt="META">
 			{:else}
 				<img src="/images/logo-dark-mode.svg" width="54" alt="META">
 			{/if}
 		</a>
 		<div class="md:hidden">
-			<ThemeController bind:lightTheme></ThemeController>
+			<ThemeController></ThemeController>
 		</div>
 		<div class="flex-row items-center gap-8 hidden md:flex">
 			<a href="/install" class="link link-hover">Install</a>
@@ -23,7 +26,7 @@
 			<a href="/playground" class="link link-hover">Playground</a>
 			<a href="/community" class="link link-hover">Community</a>
 			<a href="/about" class="link link-hover">About</a>
-			<ThemeController bind:lightTheme></ThemeController>
+			<ThemeController></ThemeController>
 		</div>
 		<div class="drawer w-auto md:hidden">
 			<input id="header-drawer" type="checkbox" class="drawer-toggle" />

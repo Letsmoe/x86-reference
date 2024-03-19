@@ -19,7 +19,7 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header client:load lightTheme={lightTheme}></Header>
+		<Header client:load lightThemeEnabled={lightTheme}></Header>
 		<main>
 			<article class="my-8 mx-auto max-w-screen-lg prose prose-base">
 				<slot />

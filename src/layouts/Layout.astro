@@ -23,7 +23,7 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 		<title>{title}</title>
 	</head>
 	<body class="w-full">
-		<Header client:load lightTheme={lightTheme}></Header>
+		<Header client:load lightThemeEnabled={lightTheme}></Header>
 		<main class="my-8 w-full max-w-full">
 			<div class="prose prose-2xl prose-pre:my-0 prose-pre:py-0 prose-pre:leading-5 w-full max-w-full">
 				<slot />
