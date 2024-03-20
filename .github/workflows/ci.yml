@@ -23,7 +23,7 @@ jobs:
             git clean -f -d
             git pull origin main
             git status
-            source ~/.bashrc
+            PATH="/root/.bun/bin:/${PATH}"
             echo "PATH: $PATH"
             echo "SHELL: $SHELL"
             bash build.bash
