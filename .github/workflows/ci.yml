@@ -23,4 +23,5 @@ jobs:
             git clean -f -d
             git pull origin main
             git status
+            echo $PATH
             bash build.bash
