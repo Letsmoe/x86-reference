@@ -23,5 +23,6 @@ jobs:
             git clean -f -d
             git pull origin main
             git status
-            echo $PATH
+            echo "PATH: $PATH"
+            echo "SHELL: $SHELL"
             bash build.bash
