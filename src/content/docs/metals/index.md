@@ -4,7 +4,9 @@ author: Moritz Utcke
 description: awd
 ---
 
-# METALS
+<p align="center">
+<img src="/metals/logo.svg" width="320" height="320">
+</p>
 
 This document outlines the specifications for METALS, an intermediate language designed to facilitate the translation of high-level source code to machine code and back. METALS aims to provide a platform-independent representation that allows for efficient code optimization and generation.
 Other than most IRs, METALS was made to provide a translation layer between different languages.
@@ -12,7 +14,7 @@ When converting to METALS, enough information is retained to convert the input c
 Considering that, METALS may also be used as a rosetta intermediate layer for converting one high-level language to another.
 
 Let's look at an example:
-The following JavaScript code will be converted to METALS. Then another [backend](./03-backends/01-what-are-backends) will take over and convert the intermediate representation to Python.
+The following JavaScript code will be converted to METALS. Then another [backend](01-writing-a-backend.md) will take over and convert the intermediate representation to Python.
 
 > Please note that decompiling is not perfect and might result in sub-optimal code. The code will work and might even be faster than handwritten code in some circumstances but in decompiling the human-readability might suffer a lot. METALS was designed to mitigate this issue or at the very least make it less obvious, but it's **NOT PERFECT**.
 

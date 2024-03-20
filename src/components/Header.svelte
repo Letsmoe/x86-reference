@@ -2,6 +2,7 @@
 	import { HamburgerMenu } from "radix-svelte-icons";
 	import ThemeController from "./ThemeController.svelte";
 	import { lightMode } from "./shared";
+	import ReactiveImage from "./ReactiveImage.svelte";
 
 	export let lightThemeEnabled: boolean = true;
 
@@ -10,16 +11,9 @@
 
 <nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-10">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
-		<a href="/" class="link link-hover text-xl hidden md:block">
-			{#if $lightMode}
-				<img src="/images/logo-light-mode.svg" width="54" alt="META">
-			{:else}
-				<img src="/images/logo-dark-mode.svg" width="54" alt="META">
-			{/if}
+		<a href="/" class="link link-hover text-xl">
+			<ReactiveImage srcdark="/favicon-dark.svg" srclight="/favicon.svg" width="54"></ReactiveImage>
 		</a>
-		<div class="md:hidden">
-			<ThemeController></ThemeController>
-		</div>
 		<div class="flex-row items-center gap-8 hidden md:flex">
 			<a href="/install" class="link link-hover">Install</a>
 			<a href="/docs" class="link link-hover">Documentation</a>
@@ -34,9 +28,12 @@
 				<!-- Page content here -->
 				<label for="header-drawer" class="btn btn-ghost drawer-button"><HamburgerMenu size={24}></HamburgerMenu></label>
 			</div> 
-			<div class="drawer-side">
+			<div class="drawer-side z-50">
 				<label for="header-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-				<ul class="menu p-4 w-80 min-h-full bg-base-200 z-50 text-base-content">
+				<ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+					<div class="mb-12">
+						<ThemeController></ThemeController>
+					</div>
 					<li><a href="/install" class="link link-hover">Install</a></li>
 					<li><a href="/docs" class="link link-hover">Documentation</a></li>
 					<li><a href="/playground" class="link link-hover">Playground</a></li>

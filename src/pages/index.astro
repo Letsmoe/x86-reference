@@ -5,12 +5,12 @@ import ReactiveImage from "../components/ReactiveImage.svelte"
 ---
 
 <Layout title="Meta Compiler Language">
-	<div class="hero min-h-[80vh] bg-base-100 w-full">
+	<div class="hero my-16 bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
 			<div class="flex items-center flex-col">
-				<ReactiveImage srcdark="/logo-modern-dark.svg" srclight="/logo-modern.svg" client:load></ReactiveImage>
+				<ReactiveImage srcdark="/logo-modern-dark.svg" srclight="/logo-modern.svg" class="h-[480px] my-0" client:load></ReactiveImage>
 				<p>
-					Writing compilers has never been easier. META is a high-level language and toolchain that makes compiler engineering accessible to everyone.
+					Writing compilers has never been easier. META is a high-level language toolchain that makes compiler engineering accessible to everyone.
 				</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-4">
@@ -23,34 +23,20 @@ import ReactiveImage from "../components/ReactiveImage.svelte"
 			</div>
 		</div>
 	</div>
-	<div class="hero min-h-[80vh] bg-base-200 w-full">
+	<div class="hero my-16 bg-base-200 w-full">
 		<div class="hero-content flex flex-col lg:flex-row">
 			<div class="w-full">
 				<h2>Stup** Fast</h2>
 				<p>
 					Meta was built for speed! It is written
 					directly in Assembly and optimized to make the most of it.
-					META can compile itself in just under <strong>2 Milliseconds</strong>, that's about as long as it takes others compilers to load their <code>--help</code> page.
+					META can compile itself in just under <strong>2 Milliseconds</strong>, that's about as long as it takes other compilers to load their <code>--help</code> page.
 				</p>
 				<p>To put that into perspective, META could compile itself recursively <strong>250 times</strong> without you even noticing any stutters while <strong>live reloading</strong></p>
 			</div>
 		</div>
 	</div>
-	<div class="hero min-h-[80vh] bg-base-100 w-full">
-		<div
-			class="hero-content flex flex-col lg:flex-row-reverse gap-12 w-4/5"
-		>
-			<div class="w-2/3">
-				<h2>Extensible</h2>
-				<p>
-					You can build just about anything with META. It was designed from the ground up to make it easy to build new languages and tools.
-				</p>
-			</div>
-			<div class="mockup-code w-full">
-			</div>
-		</div>
-	</div>
-	<div class="hero min-h-[80vh] bg-base-200 w-full">
+	<div class="hero my-16 bg-base-200 w-full">
 		<div
 			class="hero-content flex flex-col lg:flex-row-reverse"
 		>
@@ -65,11 +51,11 @@ import ReactiveImage from "../components/ReactiveImage.svelte"
 	</div>
 	<div class="hero min-h-[80vh] bg-base-100 w-full">
 		<div
-			class="hero-content flex flex-col text-center"
+			class="px-4"
 		>
 			<h2>METALS</h2>
-			<p>Languages that have compilers written in META for the METALS Intermediate Representation. All of these support decompilation into other languages.</p>
-			<div class="flex flex-row gap-16">
+			<p>Languages that have compilers written in META for the METALS Intermediate Representation. All of these support transpilation into other languages.</p>
+			<div class="flex flex-row flex-wrap gap-16 items-center">
 				<div class="tooltip tooltip-bottom" data-tip="Under development">
 					<img src="/images/javascript-logo.svg" alt="JavaScript" class="w-48 h-48 brightness-50">
 				</div>
