@@ -1,10 +1,10 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
-import DocumentationHeaderAppendix from '../components/DocumentationHeaderAppendix.svelte';
-import Footer from '../components/Footer.svelte';
-import Header from '../components/Header.svelte';
-import "../style/global.css"
-import { getArticleTree } from 'lib/getArticleTree';
+import DocumentationHeaderAppendix from '#components/DocumentationHeaderAppendix.svelte';
+import Footer from '#components/Footer.svelte';
+import Header from '#components/Header.svelte';
+import "#style/global.css"
+import { getArticleTree } from '#lib/getArticleTree';
 interface Props {
 	title: string;
 	listOfTitles: CollectionEntry<"docs">[]

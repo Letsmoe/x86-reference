@@ -4,12 +4,13 @@ import metaTextmateGrammar from "./schemas/meta.textmate.json";
 import tailwind from "@astrojs/tailwind";
 import node from "@astrojs/node";
 import { remarkWikiLink } from '@portaljs/remark-wiki-link';
+import pageInsight from "astro-page-insight";
 const pageUrlPathPrefix = "docs/";
 
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind()],
+  integrations: [svelte(), tailwind(), pageInsight()],
   site: "https://meta-lang.com",
   output: "server",
   markdown: {

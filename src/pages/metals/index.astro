@@ -1,67 +1,120 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { GithubLogo } from "radix-svelte-icons";
+import Layout from "#layouts/Layout.astro"
+import { ArrowLeft, ArrowRight, GithubLogo } from "radix-svelte-icons";
+import ReactiveImage from "#components/ReactiveImage.svelte"
+import { Highlight } from "svelte-highlight";
+import { javascript, lisp, plaintext } from "svelte-highlight/languages";
+import "svelte-highlight/styles/gruvbox-dark-hard.css"
 
-import Highlight from "svelte-highlight";
-import typescript from "svelte-highlight/languages/typescript";
-
-const code = `
-.SYNTAX HELLO_WORLD
-
-HELLO_WORLD = "Hello, World!"
-
-.END
-`;
+const source = `function dotProduct(vector1, vector2) {
+	let result = 0;
+	for (let i = 0; i < vector1.length; i++) {
+		result += vector1[i] * vector2[i];
+	}
+	return result;
+}`
+const metals = `fn dotProduct(mut vector1: Array<f64>, mut vector2: Array<f64>) -> f64 {
+	local mut var result: f64 = 0;
+	for (local mut var i: i32 = 0; i < vector1::len(); i++) {
+		result += vector1[i] * vector2[i];
+	}
+	return result;
+}`
+const output = `(defun dot-product (vector1 vector2)
+  (let ((result 0))
+    (loop for i below (length vector1)
+          do (incf result (* (elt vector1 i) (elt vector2 i))))
+    result))
+`
 ---
 
 <Layout title="Meta Compiler Language">
-	<div class="hero min-h-[80vh] bg-base-100 w-full">
+	<div class="hero my-16 bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
-			<div>
-				<h1 class="text-8xl font-extrabold">METALS</h1>
+			<div class="flex items-center flex-col">
+				<ReactiveImage srcdark="/metals/logo-dark.svg" srclight="/metals/logo.svg" class="h-[480px] my-0" client:load></ReactiveImage>
 				<p>
-					Language specification for the META intermediate language.
+					A common intermediate representation for programming languages. METALS makes human-readable decompilation and transpilation possible.
 				</p>
 			</div>
-			<div class="flex flex-row gap-4">
+			<div class="flex flex-col md:flex-row gap-4">
 				<a
 					class="btn btn-outline btn-lg no-underline"
 					href="https://github.com/the-meta-lang/metals"
-					target="_blank"><GithubLogo size={24} />View on GitHub</a
-				>
+					target="_blank"><GithubLogo size={24} />View on GitHub</a>
 				<a href="/docs/metals" class="btn btn-primary btn-lg no-underline"
-					>Learn More!</a
-				>
+					>Learn More!</a>
 			</div>
 		</div>
 	</div>
-	<div class="hero min-h-[80vh] bg-base-200 w-full">
-		<div class="hero-content flex flex-col lg:flex-row gap-12 w-4/5">
-			<div class="w-2/3">
-				<h2>Fast</h2>
-				<p>
-					Meta was built for speed! It's implementation is written
-					directly in Assembly and optimized to make the most of it.
-				</p>
+	<div class="hero py-16 bg-base-200 w-full">
+		<div class="hero-content flex flex-col">
+			<h2 class="mb-8 mt-0">Anything to Everything</h2>
+			<p class="text-center">Convert any two languages that compile to METALS IR to one another. Human readable decompilation like never seen before.</p>
+			<div class="flex flex-col lg:flex-row gap-8">
+				<div class="mockup-code pl-0 not-prose text-base bg-[#1d2021] w-1/2">
+					<Highlight code={source} language={javascript}></Highlight>
+				</div>
+				<div class="flex flex-col items-center justify-center gap-2">
+					<ArrowRight size={24}></ArrowRight>
+					<ArrowLeft size={24}></ArrowLeft>
+				</div>
+				<div class="mockup-code not-prose text-base bg-[#1d2021] w-1/2">
+					<Highlight code={output} language={lisp}></Highlight>
+				</div>
 			</div>
-			<div class="mockup-code w-full">
-				<Highlight language={typescript} code={code} />
+
+			<div class="mockup-code not-prose text-base bg-[#1d2021]">
+				<Highlight code={metals} language={plaintext}></Highlight>
+			</div>
+		</div>
+	</div>
+	<div class="hero py-16 bg-base-100 w-full">
+		<div class="hero-content flex flex-col lg:flex-row gap-8">
+			<div class="w-full lg:w-full">
+				<h2 class="mb-8 mt-0">Highly Optimized</h2>
+				<p>
+					METALS does multiple optimization passes to ensure that the output is as efficient as possible. The resulting bytecode is highly optimized and supports a wide range of architectures.
+				</p>
+				<div class="flex flex-row flex-wrap gap-16 justify-center">
+					<img src="/metals/architectures/risc-v.svg" alt="RISC-V" class="w-auto h-32">
+					<img src="/metals/architectures/amd-64.svg" alt="RISC-V" class="w-auto h-32">
+					<img src="/metals/architectures/arm.svg" alt="RISC-V" class="w-auto h-32">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero py-16 bg-base-200 w-full">
+		<div class="hero-content flex flex-col lg:flex-row">
+			<div class="w-full">
+				<h2 class="mb-8 mt-0">Well documented</h2>
+				<p>
+					It's easy to get lost when learning new languages. META comes with a comprehensive documentation so that you don't get lost in the process. Getting started is easy and you will see results right away!
+				</p>
+				<a class="btn btn-accent btn-lg no-underline" href="/docs">View Documentation</a>
 			</div>
 		</div>
 	</div>
 	<div class="hero min-h-[80vh] bg-base-100 w-full">
-		<div
-			class="hero-content flex flex-col lg:flex-row-reverse gap-12 w-4/5"
-		>
-			<div class="w-2/3">
-				<h2>Extensible</h2>
-				<p>
-					META is written using... META... It's a Metacompiler and
-					will do anything you throw at it.
-				</p>
-			</div>
-			<div class="mockup-code w-full">
-				<Highlight language={typescript} code={code} />
+		<div class="hero-content flex flex-col items-start">
+			<h2>Well Supported</h2>
+			<p>Languages that have compilers written in META for the METALS Intermediate Representation. All of these support transpilation into other languages.</p>
+			<div class="flex flex-row flex-wrap gap-16 items-center justify-center">
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/javascript-logo.svg" alt="JavaScript" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/python-logo-no-text.svg" alt="Python" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/c-logo.svg" alt="C" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/gyro-logo.svg" alt="Gyro" class="w-48 h-48 brightness-50">
+				</div>
+				<div class="tooltip tooltip-bottom" data-tip="Under development">
+					<img src="/images/cpp-logo.svg" alt="C++" class="w-48 h-48 brightness-50">
+				</div>
 			</div>
 		</div>
 	</div>

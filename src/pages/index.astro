@@ -2,13 +2,14 @@
 import Layout from "../layouts/Layout.astro"
 import { GithubLogo } from "radix-svelte-icons";
 import ReactiveImage from "../components/ReactiveImage.svelte"
+import ReactiveSvg from "~/components/ReactiveSvg.svelte";
 ---
 
 <Layout title="Meta Compiler Language">
 	<div class="hero my-16 bg-base-100 w-full">
 		<div class="hero-content text-center flex-col">
 			<div class="flex items-center flex-col">
-				<ReactiveImage srcdark="/logo-modern-dark.svg" srclight="/logo-modern.svg" class="h-[480px] my-0" client:load></ReactiveImage>
+				<ReactiveSvg src="/logo-modern.svg" class="h-[480px] w-[480px] my-0" client:load></ReactiveSvg>
 				<p>
 					Writing compilers has never been easier. META is a high-level language toolchain that makes compiler engineering accessible to everyone.
 				</p>

@@ -1,37 +1,39 @@
 <script>
 	import GithubLogo from "radix-svelte-icons/src/lib/icons/GithubLogo.svelte";
 	import TwitterLogo from "radix-svelte-icons/src/lib/icons/TwitterLogo.svelte";
+	import ReactiveSvg from "./ReactiveSvg.svelte";
 
 </script>
 <footer class="p-10 bg-base-200 text-base-content">
   <div class="footer max-w-screen-xl mx-auto">
 		<nav>
 			<header class="footer-title">Applications</header> 
-			<a class="link link-hover" href="">META Compiler</a>
+			<a class="link link-hover" href="/">META Compiler</a>
 			<a class="link link-hover" href="/meta-x">METAx CLI</a>
 			<a class="link link-hover" href="/meta-vm">META VM</a>
 			<a class="link link-hover" href="/metals">METALS (IL Specification)</a>
 		</nav> 
 		<nav>
-			<header class="footer-title">Company</header> 
-			<a class="link link-hover">About us</a>
-			<a class="link link-hover">Contact</a>
-			<a class="link link-hover">Jobs</a>
-			<a class="link link-hover">Press kit</a>
+			<header class="footer-title">META Org</header> 
+			<a class="link link-hover" href="/about">About us</a>
+			<a class="link link-hover" href="/contact">Contact</a>
+			<a class="link link-hover" href="/contributing">Contributing</a>
 		</nav> 
 		<nav>
 			<header class="footer-title">Legal</header> 
-			<a class="link link-hover">Terms of use</a>
-			<a class="link link-hover">Privacy policy</a>
-			<a class="link link-hover">Cookie policy</a>
+			<a class="link link-hover" href="/terms-of-use">Terms of use</a>
+			<a class="link link-hover" href="/privacy-policy">Privacy policy</a>
+			<a class="link link-hover" href="/cookie-policy">Cookie policy</a>
 		</nav>
 	</div>
 </footer> 
-<footer class="py-4 border-t bg-base-200 text-base-content border-base-300">
+<footer class="py-4 px-8 border-t bg-base-200 text-base-content border-base-300">
   <div class="footer max-w-screen-xl mx-auto">
-		<aside class="items-center grid-flow-col">
-			<img src="/images/logo.svg" width="100">
-			<p>META Language <br/>Advancing programming to the next step.</p>
+		<aside class="items-center grid-flow-col gap-4">
+			<a href="/">
+				<ReactiveSvg src="/favicon.svg" class="w-[54px] h-[54px]"></ReactiveSvg>
+			</a>
+			<p>The META Compiler Toolchain <br/>Advancing programming to the next step.</p>
 		</aside> 
 		<nav class="md:place-self-center md:justify-self-end">
 			<div class="grid grid-flow-col gap-4">

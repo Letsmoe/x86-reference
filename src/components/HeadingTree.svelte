@@ -31,7 +31,7 @@
 
 <svelte:window on:scroll={findElementToHighlight}></svelte:window>
 
-<div class="border-l-4 border-l-base-300 h-min pl-4 sticky top-[160px]">
+<div class="border-l-4 border-l-primary h-min pl-4 sticky top-[160px]">
 	{#each headings as heading, i}
 		<a href={`#${heading.slug}`} class="block transition-colors duration-200 py-1 text-base no-underline hover:underline"
 		class:font-bold={highlightedIndex == i}
