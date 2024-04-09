@@ -1,30 +1,34 @@
 import * as fs from "fs";
-import Fastify from "fastify";
+import Fastify, { FastifyHttpsOptions } from "fastify";
 import fastifyMiddie from "@fastify/middie";
 import fastifyStatic from "@fastify/static";
 import { fileURLToPath } from "node:url";
 import { handler as ssrHandler } from "./dist/server/entry.mjs";
 
-let privateKey: string = "";
-let certificate: string = "";
+const options: { logger: boolean, https?: { key: string, cert: string }, ignoreTrailingSlash: boolean } = {
+	logger: true,
+	ignoreTrailingSlash: true,
+}
+
 try {
-	privateKey = fs.readFileSync(
+	const privateKey = fs.readFileSync(
 		"/etc/letsencrypt/live/meta-lang.com/privkey.pem",
 		"utf8"
 	);
-	certificate = fs.readFileSync(
+	const certificate = fs.readFileSync(
 		"/etc/letsencrypt/live/meta-lang.com/cert.pem",
 		"utf8"
 	);
+
+	if (privateKey && certificate) {
+		options.https = {
+			key: privateKey,
+			cert: certificate
+		};
+	}
 } catch(e){ }
 
-const app = Fastify({
-	logger: false,
-	https: {
-		key: privateKey,
-		cert: certificate
-	},
-});
+const app = Fastify(options);
 
 await app
 	.register(fastifyStatic, {
