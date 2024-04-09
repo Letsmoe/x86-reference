@@ -3,7 +3,7 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 ---
 
 <DocumentationLayout title="Documentation" listOfTitles={[]}>
-	<div class="py-16">
+<div class="py-16">
 		<div class="max-w-screen-xl mx-auto px-8">
 			<h1 class="text-4xl md:text-6xl font-extrabold">Documentation</h1>
 			<p>Welcome to the documentation pages of the META Compiler Toolchain. This documentation covers all major parts of the META Toolchain, if you're looking to get started with META right away just click <a href="/docs/meta/00-getting-started">here</a></p>
@@ -20,18 +20,12 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">METAx</h2>
 					<p>The Command-line interface for the META compiler toolchain.</p>
-				</div>
+				</div> 
 			</a>
 			<a href="/docs/metals" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-accent transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">METALS</h2>
 					<p>Common intermediate language specification.</p>
-				</div>
-			</a>
-			<a href="/docs/meta-vm" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-primary transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
-				<div class="card-body">
-					<h2 class="card-title !mt-4 !mb-2">Meta-VM</h2>
-					<p>Virtual Machine for using Meta on any platform.</p>
 				</div>
 			</a>
 			<a href="/docs/meta-test" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-violet-200 dark:from-violet-400 dark:to-base-100 to-base-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
@@ -44,6 +38,12 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">Stack</h2>
 					<p>A language-agnostic package manager.</p>
+				</div>
+			</a>
+			<a href="/docs/meta-lisp" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-amber-200 dark:from-amber-400 dark:to-base-100 to-base-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+				<div class="card-body">
+					<h2 class="card-title !mt-4 !mb-2">META Lisp</h2>
+					<p>A high-level lisp inspired language for writing fast and efficient code.</p>
 				</div>
 			</a>
 		</div>

@@ -3,7 +3,6 @@ title: Types
 author: Moritz Utcke
 description: A detailed overview of META's type system.
 ---
-# Types
 
 Compilers have to be fast. Nobody likes to wait around for minutes waiting for their project to compile just to error out after a few seconds. That is where memory optimizations come in. META's type system tries to achieve a middleground between legibility and performance.
 There are some built-in primitives and the standard library includes many more advanced types. For simplicity sake META uses the exact same type system as METALS.

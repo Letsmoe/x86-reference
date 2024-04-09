@@ -3,7 +3,6 @@ title: Notes
 author: Moritz Utcke
 description: Notes
 ---
-# Notes
 
 The following operators exist
 
@@ -27,7 +26,7 @@ The following operators exist
 | `-<...>`            | Immediate Capture                | Captures the last expression result into a variable specified in `...`                                                                                                              |
 | `-f<...>`           | Immediate Modifier               | Calls the function `f` with the specified arguments and the last expression result. **The last expression result will ALWAYS be in position 0 of the argument list**                |
 
-# Declaring Variables
+## Declaring Variables
 
 ```meta
 [define [i32 name] 0]
@@ -36,14 +35,14 @@ The following operators exist
 	[+ arg1 arg2]]
 ```
 
-# Overrides
+## Overrides
 
 ```meta
 [override [fn [u32 arg1] [u32 arg2]] -> u32
 	[+ arg1 arg2]]
 ```
 
-# Enum
+## Enum
 
 ```meta
 [enum MyEnumName
@@ -53,7 +52,7 @@ The following operators exist
 [define [MyEnumName variable] MyEnumName::first]
 ```
 
-# Structs
+## Structs
 
 ```meta
 [struct MyStruct<T>
@@ -64,35 +63,37 @@ The following operators exist
 [define [MyStruct<i32> prop1]]
 ```
 
+## Arrays
 
-# Arrays
-
-Arrays can be created by doing:
-`'[1 2 3 4]` 
+Arrays can be created by doing: `'[1 2 3 4]`
 
 Array elements are separated by a space
 
 ## Types
 
-The types of all variables have to be explicitly declared so the compiler can optimize for them.
-You have several options when creating an array. By default there are no mixed arrays meaning you cannot write `char` and `i32` into the same array.
+The types of all variables have to be explicitly declared so the compiler can
+optimize for them. You have several options when creating an array. By default
+there are no mixed arrays meaning you cannot write `char` and `i32` into the
+same array.
 
 `i32[]` Will create a dynamically sized array of `i32`s
 
 `i32[5]` Will create an `i32` array of size 5
 
-`i32[5,]` Will create an `i32` array with initial length 5 that can be dynamically resized but may not be resized to less than 5 entries.
+`i32[5,]` Will create an `i32` array with initial length 5 that can be
+dynamically resized but may not be resized to less than 5 entries.
 
-`i32[,5]` Will create an `i32` array with no initial length that can be resized up to an entry count of 5
+`i32[,5]` Will create an `i32` array with no initial length that can be resized
+up to an entry count of 5
 
-`i32[5,10]` Will create an `i32` array with initial length 5 that may be extended up to a size of 10
+`i32[5,10]` Will create an `i32` array with initial length 5 that may be
+extended up to a size of 10
 
-# Char
+## Char
 
 `'a`
 
-
-# Datatypes
+## Datatypes
 
 | Name    | Description                                                     |
 | ------- | --------------------------------------------------------------- |

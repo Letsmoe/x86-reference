@@ -4,8 +4,6 @@ author: Moritz Utcke
 description: awd
 ---
 
-# Keywords
-
 META has a number of keywords that are reserved for special purposes and cannot be used as identifiers. 
 Each keyword starts with a `.` and is followed by a sequence of letters, digits, or underscores.
 

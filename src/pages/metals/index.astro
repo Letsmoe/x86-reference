@@ -13,9 +13,9 @@ const source = `function dotProduct(vector1, vector2) {
 	}
 	return result;
 }`
-const metals = `fn dotProduct(mut vector1: Array<f64>, mut vector2: Array<f64>) -> f64 {
+const metals = `fn dotProduct(mut vector1: f64[], mut vector2: f64[]) -> f64 {
 	local mut var result: f64 = 0;
-	for (local mut var i: i32 = 0; i < vector1::len(); i++) {
+	for (local mut var i: i32 = 0; i < vector1::length(); i++) {
 		result += vector1[i] * vector2[i];
 	}
 	return result;

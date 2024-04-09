@@ -3,7 +3,6 @@ title: Initial Ideas
 author: Moritz Utcke
 description: Initial Ideas for the METALS IR
 ---
-# Initial Ideas
 
 Since METALS is meant to simplify to process of transpilation and decompilation into human-readable source code it's important to have a syntax that fits to most language types easily. METALS has to support Python just as well as it does Lisp or C.
 That is not an easy task since data types and their behavior in JavaScript are inherently different than that of other languages. Take this code for example:

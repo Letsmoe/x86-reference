@@ -1,0 +1,171 @@
+{
+  "fileTypes": [
+    "mlisp"
+  ],
+  "name": "mlisp",
+  "patterns": [
+    {
+      "include": "#main"
+    }
+  ],
+  "scopeName": "source.mlisp",
+  "uuid": "",
+  "repository": {
+    "main": {
+      "patterns": [
+        {
+          "match": "([\\x{002b}\\x{003d}\\-\\x{003c}\\x{003e}\\x{005c}\\x{002a}\\x{0026}\\x{005e}\\x{0025}\\x{0024}\\x{0023}\\x{0040}\\x{0021}\\x{003f}])",
+          "name": "keyword.operator.mlisp"
+        },
+        {
+          "match": "(defunc|define|while|for|if|return|asm|set!)",
+          "name": "keyword.other.mlisp"
+        },
+        {
+          "include": "#numeric"
+        },
+        {
+          "begin": "(\\[)([\\x{002b}\\x{003d}\\-\\x{003c}\\x{003e}\\x{005c}\\x{002a}\\x{0026}\\x{005e}\\x{0025}\\x{0024}\\x{0023}\\x{0040}\\x{0021}\\x{003f}])",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            },
+            "2": {
+              "name": "keyword.operator.mlisp"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#main__1"
+            }
+          ],
+          "end": "(\\])",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            }
+          }
+        },
+        {
+          "begin": "(\\[)(defunc|define|while|for|if|return|asm|set!)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            },
+            "2": {
+              "name": "keyword.other.mlisp"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#main__2"
+            }
+          ],
+          "end": "(\\])",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            }
+          }
+        },
+        {
+          "begin": "(\\[)((?:[A-Z]|[a-z]|[_\\x{0024}\\x{0021}])(?:[A-Z]|[a-z]|[0-9]|[_\\x{0024}\\x{0021}-])+)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            },
+            "2": {
+              "name": "entity.function.mlisp"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#main__3"
+            }
+          ],
+          "end": "(\\])",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            }
+          }
+        },
+        {
+          "begin": "(\\\")",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            }
+          },
+          "contentName": "string.quoted.double.mlisp",
+          "end": "(\\\")",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.bold.mlisp"
+            }
+          }
+        },
+        {
+          "match": "(//.*)",
+          "name": "comment.line.mlisp"
+        }
+      ]
+    },
+    "main__1": {
+      "patterns": [
+        {
+          "match": "(defunc|define|while|for|if|return|asm|set!)",
+          "name": "keyword.other.mlisp"
+        },
+        {
+          "match": "((?:[A-Z]|[a-z]|[_\\x{0024}\\x{0021}])(?:[A-Z]|[a-z]|[0-9]|[_\\x{0024}\\x{0021}-])+)",
+          "name": "variable.other.mlisp"
+        },
+        {
+          "include": "#main"
+        }
+      ]
+    },
+    "main__2": {
+      "patterns": [
+        {
+          "match": "(defunc|define|while|for|if|return|asm|set!)",
+          "name": "keyword.other.mlisp"
+        },
+        {
+          "match": "((?:[A-Z]|[a-z]|[_\\x{0024}\\x{0021}])(?:[A-Z]|[a-z]|[0-9]|[_\\x{0024}\\x{0021}-])+)",
+          "name": "variable.other.mlisp"
+        },
+        {
+          "include": "#main"
+        }
+      ]
+    },
+    "main__3": {
+      "patterns": [
+        {
+          "match": "(defunc|define|while|for|if|return|asm|set!)",
+          "name": "keyword.other.mlisp"
+        },
+        {
+          "match": "((?:[A-Z]|[a-z]|[_\\x{0024}\\x{0021}])(?:[A-Z]|[a-z]|[0-9]|[_\\x{0024}\\x{0021}-])+)",
+          "name": "variable.other.mlisp"
+        },
+        {
+          "include": "#main"
+        }
+      ]
+    },
+    "main__4": {
+      "patterns": []
+    },
+    "numeric": {
+      "patterns": [
+        {
+          "match": "(\\b\\d+)",
+          "name": "constant.numeric.mlisp"
+        }
+      ]
+    }
+  }
+}

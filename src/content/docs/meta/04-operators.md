@@ -3,7 +3,6 @@ title: Operators
 author: Moritz Utcke
 description: An overview of all supported operators in META
 ---
-# Operators
 
 META uses special operators for some commonly functions to make writing concise language descriptions easier.
 

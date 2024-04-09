@@ -1,3 +1,13 @@
 {
-	"compile-hero.disable-compile-files-on-did-save-code": false
+	"compile-hero.disable-compile-files-on-did-save-code": false,
+	"workbench.colorCustomizations": {
+		"minimap.background": "#00000000",
+		"scrollbar.shadow": "#00000000"
+	},
+	"files.exclude": {
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
+	}
 }

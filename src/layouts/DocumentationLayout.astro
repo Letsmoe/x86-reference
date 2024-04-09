@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import DocumentationHeaderAppendix from '#components/DocumentationHeaderAppendix.svelte';
-import Footer from '#components/Footer.svelte';
+import Footer from '~/components/Footer.astro';
 import Header from '#components/Header.svelte';
 import "#style/global.css"
 import { getArticleTree } from '#lib/getArticleTree';
@@ -20,7 +20,7 @@ const slug = Astro.url.pathname.replace(/\/docs\//, "")
 const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 
 ---
-
+		
 <!doctype html>
 <html lang="en">
 	<head>
@@ -39,6 +39,6 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 				<slot />
 			</div>
 		</main>
-		<Footer client:load></Footer>
+		<Footer></Footer>
 	</body>
 </html>

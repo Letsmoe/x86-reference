@@ -1,0 +1,56 @@
+---
+import Layout from "#layouts/Layout.astro"
+import { GithubLogo } from "radix-svelte-icons";
+import ReactiveSvg from "#components/ReactiveSvg.svelte";
+import { lisp } from "svelte-highlight/languages";
+import { Highlight } from "svelte-highlight";
+
+const code = `[defunc [fib [i32 n]] -> i32
+	[if [<= n 1]
+		n
+		[+ [fib [- n 1]] [fib [- n 2]]]]]`
+---
+
+<Layout title="META Lisp" favicon="/meta-lisp/favicon.svg" favicondark="/meta-lisp/favicon-dark.svg">
+	<div class="hero my-16 bg-base-100 w-full">
+		<div class="hero-content text-center flex-col">
+			<div class="flex items-center flex-col">
+				<ReactiveSvg src="/meta-lisp/logo.svg" class="h-[480px] w-[480px] my-0" client:load></ReactiveSvg>
+				<p>
+					A high-level lisp inspired language for writing fast and efficient code.
+				</p>
+			</div>
+			<div class="flex flex-col md:flex-row gap-4">
+				<a
+					class="btn btn-outline btn-lg no-underline"
+					href="https://github.com/the-meta-lang/meta-lisp"
+					target="_blank"><GithubLogo size={24} />View on GitHub</a>
+				<a href="/meta-lisp/install" class="btn btn-primary btn-lg no-underline"
+					>Get Started!</a>
+			</div>
+		</div>
+	</div>
+	<div class="hero py-16 bg-base-200 w-full">
+		<div class="hero-content flex flex-col lg:flex-row">
+			<div class="w-full">
+				<h2 class="mb-8 mt-0">We've got all the parentheses!</h2>
+				<p>
+					In traditional lisp fashion META Lisp uses a lot of parentheses. This allows for a very simple and easy to parse syntax. It also allows for a very powerful macro system that can be used to extend the language in any way you see fit. Everything is either a function or a macro, even the addition operator!
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="hero py-16 bg-base-100 w-full">
+		<div class="hero-content flex flex-col lg:flex-row gap-8">
+			<div class="w-full lg:w-2/3">
+				<h2 class="mb-8 mt-0">Type safety as a priority.</h2>
+				<p>
+					META Lisp is statically typed and has a very powerful type system. If you dream it you can do it. The type system is designed to be as flexible as possible while still being able to catch most errors at compile time.
+				</p>
+			</div>
+			<div class="mockup-code not-prose text-base bg-[#1d2021] w-1/2">
+				<Highlight {code} language={lisp}></Highlight>
+			</div>
+		</div>
+	</div>
+</Layout>

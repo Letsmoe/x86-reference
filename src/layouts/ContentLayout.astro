@@ -1,5 +1,5 @@
 ---
-import Footer from '../components/Footer.svelte';
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.svelte';
 import "../style/global.css"
 interface Props {
@@ -27,6 +27,6 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 				<slot />
 			</div>
 		</main>
-		<Footer client:load></Footer>
+		<Footer></Footer>
 	</body>
 </html>

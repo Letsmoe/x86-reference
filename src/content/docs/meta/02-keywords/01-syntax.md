@@ -4,8 +4,6 @@ author: Moritz Utcke
 description: awd
 ---
 
-# `.SYNTAX`
-
 This is the most important part of your grammar. It declares a new syntax definition and must be followed by an identifier defining the entry point of your grammar. This is usually either `PROGRAM` or `MAIN`.
 
 ```meta

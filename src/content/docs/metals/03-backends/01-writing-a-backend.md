@@ -5,7 +5,6 @@ description: A detailed explanation of backends in the METALS Toolchain
 ---
 
 
-# Writing your own backend.
 
 > If you're not familiar with the syntax of either META or METALS, we would highly recommend that you read the pages about [META](/docs/meta/00-getting-started) and the [METALS syntax](/docs/metals/00-syntax) first.
 

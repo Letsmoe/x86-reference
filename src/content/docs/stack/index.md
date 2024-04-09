@@ -4,7 +4,6 @@ author: Moritz Utcke
 description: A language-agnostic package manager
 ---
 
-# Stack
 
 A language-agnostic package manager that allows you to manage dependencies for your projects.
 It is built on top of the [METALS IL](/docs/metals) and comes with its own CLI. It is designed to allow interoperability between different languages.

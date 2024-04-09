@@ -4,30 +4,24 @@ author: Moritz Utcke
 description: awd
 ---
 
-# METAx CLI
-
-## Overview
-
 This document outlines the specifications for METALS, an intermediate programming language designed to facilitate the translation of high-level source code to machine code. METALS aims to provide a platform-independent representation that allows for efficient code optimization and generation.
 
 ## Table of Contents
 
-- [METAx CLI](#metax-cli)
-	- [Overview](#overview)
-	- [Table of Contents](#table-of-contents)
-	- [1. Introduction](#1-introduction)
-	- [2. Syntax](#2-syntax)
-	- [3. Semantics](#3-semantics)
-	- [4. Data Types](#4-data-types)
-	- [5. Operators](#5-operators)
-	- [6. Control Flow](#6-control-flow)
-	- [7. Functions](#7-functions)
-	- [8. Memory Management](#8-memory-management)
-	- [9. Built-in Functions](#9-built-in-functions)
-	- [10. Standard Library](#10-standard-library)
-	- [11. Toolchain Integration](#11-toolchain-integration)
-	- [12. Example Code](#12-example-code)
-	- [13. Appendix](#13-appendix)
+- [Table of Contents](#table-of-contents)
+- [1. Introduction](#1-introduction)
+- [2. Syntax](#2-syntax)
+- [3. Semantics](#3-semantics)
+- [4. Data Types](#4-data-types)
+- [5. Operators](#5-operators)
+- [6. Control Flow](#6-control-flow)
+- [7. Functions](#7-functions)
+- [8. Memory Management](#8-memory-management)
+- [9. Built-in Functions](#9-built-in-functions)
+- [10. Standard Library](#10-standard-library)
+- [11. Toolchain Integration](#11-toolchain-integration)
+- [12. Example Code](#12-example-code)
+- [13. Appendix](#13-appendix)
 
 ## 1. Introduction
 

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
 import metaTextmateGrammar from "./schemas/meta.textmate.json";
+import mlispTextmateGemmar from "./schemas/mlisp.tmLanguage.json";
 import tailwind from "@astrojs/tailwind";
 import node from "@astrojs/node";
 import { remarkWikiLink } from '@portaljs/remark-wiki-link';
@@ -21,7 +22,7 @@ export default defineConfig({
       }
     }]],
     shikiConfig: {
-      langs: [metaTextmateGrammar, "js", "python", "asm", "cpp", "c", "lisp", "json"]
+      langs: [metaTextmateGrammar, mlispTextmateGemmar, "js", "python", "asm", "cpp", "c", "lisp", "json"]
     }
   },
   base: "/",

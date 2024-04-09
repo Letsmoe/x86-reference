@@ -3,7 +3,6 @@ title: Backends
 author: Moritz Utcke
 description: An introduction to backends.
 ---
-# Backends
 
 METALS is a common intermediate language. It does not come with any implementations by itself. That's where backends come in. Compilers that target METALS as a common intermediate language.
 Backends typically have two functions.

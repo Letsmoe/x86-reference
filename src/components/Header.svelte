@@ -2,11 +2,11 @@
 	import { HamburgerMenu } from "radix-svelte-icons";
 	import ThemeController from "./ThemeController.svelte";
 	import { lightMode } from "./shared";
-	import ReactiveImage from "./ReactiveImage.svelte";
 	import DiscordLogo from "radix-svelte-icons/src/lib/icons/DiscordLogo.svelte";
 	import ReactiveSvg from "./ReactiveSvg.svelte";
 
 	export let lightThemeEnabled: boolean = true;
+	export let favicon: string = "/favicon.svg";
 
 	lightMode.set(lightThemeEnabled);
 </script>
@@ -14,12 +14,13 @@
 <nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-10">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
 		<a href="/" class="link link-hover text-xl">
-			<ReactiveSvg src="/favicon.svg" class="w-[54px] h-[54px]"></ReactiveSvg>
+			<ReactiveSvg src={favicon} class="w-[54px] h-[54px]"></ReactiveSvg>
 		</a>
 		<div class="flex-row items-center gap-8 hidden md:flex">
 			<a href="/install" class="link link-hover">Install</a>
 			<a href="/docs" class="link link-hover">Documentation</a>
 			<a href="/metals" class="link link-hover">METALS</a>
+			<a href="/meta-lisp" class="link link-hover">META Lisp</a>
 			<a href="/stack" class="link link-hover">Stack</a>
 			<a href="/about" class="link link-hover">About</a>
 			<a href="https://discord.gg/vA9FxZghze" class="btn btn-outline"><DiscordLogo size={20}></DiscordLogo>Discord</a>
@@ -40,6 +41,7 @@
 					<li><a href="/install" class="link link-hover">Install</a></li>
 					<li><a href="/docs" class="link link-hover">Documentation</a></li>
 					<li><a href="/metals" class="link link-hover">METALS</a></li>
+					<li><a href="/meta-lisp" class="link link-hover">META Lisp</a></li>
 					<li><a href="/stack" class="link link-hover">Stack</a></li>
 					<li><a href="/about" class="link link-hover">About</a></li>
 					<li class="mt-4"><a href="https://discord.gg/vA9FxZghze" class="btn btn-outline"><DiscordLogo size={20}></DiscordLogo>Discord</a></li>

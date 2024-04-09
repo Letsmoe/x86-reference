@@ -4,8 +4,6 @@ author: Moritz Utcke
 description: awd
 ---
 
-# Importing Modules
-
 Modules are a way to organize and reuse syntax definitions. They can be imported into other syntax definitions using the `.IMPORT` keyword. This allows you to define a syntax once and use it in multiple places.
 
 ## Syntax
