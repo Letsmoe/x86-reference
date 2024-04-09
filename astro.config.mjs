@@ -29,6 +29,6 @@ export default defineConfig({
   compressHTML: true,
   trailingSlash: "never",
   adapter: node({
-    mode: "middleware"
+    mode: "standalone",
   })
 });

@@ -24,6 +24,4 @@ jobs:
             git pull origin main
             git status
             PATH="/root/.bun/bin:/${PATH}"
-            echo "PATH: $PATH"
-            echo "SHELL: $SHELL"
             bash build.bash
