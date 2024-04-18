@@ -3,7 +3,6 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"paths": {
-			"~/*": ["./src/*"],
 			"#layouts/*": ["./src/layouts/*"],
 			"#components/*": ["./src/components/*"],
 			"#style/*": ["./src/style/*"],

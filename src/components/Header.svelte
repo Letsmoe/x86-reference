@@ -19,6 +19,7 @@
 		<div class="flex-row items-center gap-8 hidden md:flex">
 			<a href="/install" class="link link-hover">Install</a>
 			<a href="/docs" class="link link-hover">Documentation</a>
+			<a href="/standard-libraries" class="link link-hover">Standard Library</a>
 			<a href="/metals" class="link link-hover">METALS</a>
 			<a href="/meta-lisp" class="link link-hover">META Lisp</a>
 			<a href="/stack" class="link link-hover">Stack</a>
@@ -40,6 +41,7 @@
 					</div>
 					<li><a href="/install" class="link link-hover">Install</a></li>
 					<li><a href="/docs" class="link link-hover">Documentation</a></li>
+					<li><a href="/standard-libraries" class="link link-hover">Standard Library</a></li>
 					<li><a href="/metals" class="link link-hover">METALS</a></li>
 					<li><a href="/meta-lisp" class="link link-hover">META Lisp</a></li>
 					<li><a href="/stack" class="link link-hover">Stack</a></li>

@@ -6,12 +6,14 @@ import tailwind from "@astrojs/tailwind";
 import node from "@astrojs/node";
 import { remarkWikiLink } from '@portaljs/remark-wiki-link';
 import pageInsight from "astro-page-insight";
+import remarkCodeTabs from "./src/lib/remarkTabs"
+import mdx from "@astrojs/mdx";
 const pageUrlPathPrefix = "docs/";
 
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind(), pageInsight()],
+  integrations: [svelte(), tailwind(), pageInsight(), mdx()],
   site: "https://meta-lang.com",
   output: "server",
   markdown: {
@@ -20,7 +22,7 @@ export default defineConfig({
       wikiLinkResolver: slug => {
         pageUrlPathPrefix + slug;
       }
-    }]],
+    }],remarkCodeTabs],
     shikiConfig: {
       langs: [metaTextmateGrammar, mlispTextmateGemmar, "js", "python", "asm", "cpp", "c", "lisp", "json"]
     }
@@ -29,6 +31,6 @@ export default defineConfig({
   compressHTML: true,
   trailingSlash: "never",
   adapter: node({
-    mode: "middleware",
+    mode: "middleware"
   })
 });

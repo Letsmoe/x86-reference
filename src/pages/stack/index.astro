@@ -4,8 +4,8 @@ import { GithubLogo } from "radix-svelte-icons";
 import ReactiveImage from "#components/ReactiveImage.svelte"
 import "svelte-highlight/styles/gruvbox-dark-hard.css"
 
-import { prisma } from "~/lib/server/db"
-import ReactiveSvg from "~/components/ReactiveSvg.svelte";
+import { prisma } from "#lib/server/db"
+import ReactiveSvg from "#components/ReactiveSvg.svelte";
 
 const packages = await prisma.package.findMany({
 	include: {

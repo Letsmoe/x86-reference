@@ -4,6 +4,7 @@
 	export let tree: RecursiveArticleTree;
 	export let slug: string;
 	export let depth: number = 0;
+	export let base: string = "docs";
 </script>
 
 {#if tree}
@@ -12,7 +13,7 @@
 			{#if node.entry}
 				<li>
 					<a
-						href={`/docs/${node.entry.slug}`}
+						href={`/${base}/${node.entry.slug}`}
 						class:bg-primary={node.entry.slug == slug}
 						class:font-bold={depth == 0}
 						class="hover:bg-primary">{node.entry.data.title}</a
@@ -21,7 +22,7 @@
 			{/if}
 			{#if Object.keys(node.children).length > 0}
 				<li>
-					<svelte:self tree={node.children} depth={depth + 1} {slug} />
+					<svelte:self tree={node.children} depth={depth + 1} {slug} {base} />
 				</li>
 			{/if}
 		{/each}

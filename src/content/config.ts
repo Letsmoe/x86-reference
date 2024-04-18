@@ -7,12 +7,29 @@ export const docsCollectionSchema = z.object({
 	description: z.string()
 })
 
+export const stdlibCollectionSchema = z.object({
+	title: z.string(),
+	library: z.string().optional(),
+	description: z.string(),
+	author: z.string(),
+	seealso: z.array(z.string()).optional(),
+	date: z.date().optional(),
+	tags: z.array(z.string()).optional(),
+	language: z.string(),
+})
+
 const docsCollection = defineCollection({
 	type: "content",
 	schema: docsCollectionSchema
 })
+
+const stdlibCollection = defineCollection({
+	type: "content",
+	schema: stdlibCollectionSchema
+})
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-	docs: docsCollection
+	docs: docsCollection,
+	stdlib: stdlibCollection
 };

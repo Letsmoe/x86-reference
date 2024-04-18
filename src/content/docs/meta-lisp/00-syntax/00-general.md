@@ -95,6 +95,14 @@ META Lisp supports arrays using a special syntax. Arrays are static by default, 
 - `[<capacity>]` creates a fixed capacity array.
 - `[]` creates a dynamic array.
 
+## Char
+
+Char literals are enclosed in single quotes.
+
+```mlisp
+[define [char c] 'a']
+```
+
 ## Strings
 
 META Lisp supports string literals, which are enclosed in double quotes.
@@ -102,7 +110,7 @@ META Lisp supports string literals, which are enclosed in double quotes.
 ```mlisp
 [define [char[13,] s] "Hello, world!"]
 
-[set s->0 'H]
+[set s->0 'H']
 ```
 
 ## Comments

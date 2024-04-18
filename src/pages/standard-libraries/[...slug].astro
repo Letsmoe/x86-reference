@@ -1,0 +1,108 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import HeadingTree from "#components/HeadingTree.svelte";
+import CollectionTree from "#components/CollectionTree.svelte";
+import { getArticleTree } from "#lib/getArticleTree";
+import StdlibLayout from "#layouts/StdlibLayout.astro";
+import { getArticleParents } from "#lib/getArticleParents";
+import LanguageSelector from "#components/LanguageSelector.svelte";
+
+const slug = Astro.params.slug as string;
+
+const articles = await getCollection("stdlib", (entry) => entry.slug == slug);
+
+if (articles.length == 0 || articles.length > 1) {
+	return Astro.redirect("/404")
+}
+
+const article = articles[0];
+// Recursively resolve all parent directories of this article
+const parents = [...await getArticleParents(article, "stdlib"), article]
+
+const {Content, headings} = await article.render()
+
+const collection = await getCollection("stdlib");
+const tree = getArticleTree(collection)
+---
+
+<StdlibLayout title={article.data.title} listOfTitles={parents}>
+	<div class="grid grid-cols-1 xl:grid-cols-[1fr_3fr_1fr] gap-16">
+		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose">
+			<ul class="menu px-4 sticky py-8 top-0 min-h-full bg-base-100 border-r-2 border-r-base-200 text-base-content">
+				<CollectionTree tree={tree} slug={slug} base="standard-libraries"></CollectionTree>
+			</ul>
+		</div> 
+		<article class="my-8 px-4">
+			<div class="flex justify-between items-start">
+				<div>
+					<h1 class="!mb-2">{article.data.title}</h1>
+					<div class="flex flex-row items-center flex-wrap mb-12 gap-2">
+						{article.data.library ? <div class="badge badge-primary font-bold">&lt;{article.data.library}&gt;</div> : null}
+						{article.data.tags?.map(tag => <div class="badge badge-accent font-bold">{tag}</div>)}
+					</div>
+				</div>
+				<LanguageSelector client:load></LanguageSelector>
+			</div>
+			<Content></Content>
+			{(article.data.seealso?.length || 0) > 0 ? <h2>See Also</h2>
+				<table>
+					{article.data.seealso?.map(seeAlso => {
+						const [library, title] = seeAlso.split("/")
+						const entry = collection.find(entry => entry.data.library == library && entry.data.title == title)
+						if (entry) {
+							return (<tr>
+								<td class="bg-base-200 !px-2 !py-1">
+									<a href={`/standard-libraries/${library}/${title}`} class="link link-secondary" >{library}/{title}</a>
+								</td>
+								<td class="!py-1 !px-2">
+									{entry.data.description}
+								</td>
+							</tr>)
+						} else {
+							return (<tr>
+								<td class="text-secondary-content bg-base-200 !px-2 !py-1">
+									{seeAlso}
+								</td>
+								<td class="!px-2 !py-1"><strong>This article could not be found</strong></td>
+							</tr>)
+						}
+					})}
+				</table> : null}
+		</article>
+		<div class="my-8">
+			<HeadingTree headings={headings} client:load></HeadingTree>
+		</div>
+	</div>
+</StdlibLayout>
+
+<script>
+	// Check if the user has a preferred programming language he would like to see.
+	const hasPreferredLanguage: string = localStorage.getItem("lang-preference") || "";
+
+	if (hasPreferredLanguage) {
+		const preferredLanguage = hasPreferredLanguage.toLowerCase();
+		document.querySelectorAll(`[data-lang="${preferredLanguage}"]`).forEach((element) => {
+			(element as HTMLInputElement).checked = true;
+		});
+	}
+
+	// Listen for changes in the language selection and update the user's preference.
+	document.querySelectorAll("input[data-lang]").forEach((input) => {
+		input.addEventListener("change", (event) => {
+			const language = (event.target as HTMLInputElement).getAttribute("data-lang");
+
+			if (!language) return;
+			localStorage.setItem("lang-preference", language);
+
+			document.querySelectorAll(`[data-lang="${language}"]`).forEach((element) => {
+				(element as HTMLInputElement).checked = true;
+			});
+		});
+	});
+</script>
+
+<style is:global>
+	article pre {
+		@apply !p-6;
+	}
+</style>

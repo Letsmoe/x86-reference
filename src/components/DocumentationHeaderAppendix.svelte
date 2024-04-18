@@ -4,19 +4,20 @@
 	import { HamburgerMenu } from "radix-svelte-icons";
 	import CollectionTree from "./CollectionTree.svelte";
 
-	export let listOfTitles: CollectionEntry<"docs">[];
+	export let listOfTitles: (CollectionEntry<"docs"> | CollectionEntry<"stdlib">)[];
 
 	export let tree: RecursiveArticleTree;
 	export let slug: string;
+	export let base: string = "docs";
 </script>
 
 <nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-6 sticky top-[80px] z-10">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
 		<div class="text-sm breadcrumbs">
 			<ul>
-				<li><a href="/docs" class="link link-hover">Docs</a></li>
+				<li><a href="/{base}" class="link link-hover">{base == "docs" ? "Docs" : "Standard Libraries"}</a></li>
 				{#each listOfTitles as article}
-					<li><a href={`/docs/${article.slug}`} class="link link-hover">{article.data.title}</a></li>
+					<li><a href="/{base}/{article.slug}" class="link link-hover">{article.data.title}</a></li>
 				{/each}
 			</ul>
 		</div>
