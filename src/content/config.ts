@@ -5,7 +5,7 @@ export const docsCollectionSchema = z.object({
 	title: z.string(),
 	author: z.string(),
 	description: z.string()
-})
+}).or(z.any())
 
 export const stdlibCollectionSchema = z.object({
 	title: z.string(),

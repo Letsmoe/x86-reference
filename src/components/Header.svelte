@@ -11,7 +11,7 @@
 	lightMode.set(lightThemeEnabled);
 </script>
 
-<nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-10">
+<nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-20">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
 		<a href="/" class="link link-hover text-xl">
 			<ReactiveSvg src={favicon} class="w-[54px] h-[54px]"></ReactiveSvg>
@@ -22,8 +22,7 @@
 			<a href="/standard-libraries" class="link link-hover">Standard Library</a>
 			<a href="/metals" class="link link-hover">METALS</a>
 			<a href="/meta-lisp" class="link link-hover">META Lisp</a>
-			<a href="/stack" class="link link-hover">Stack</a>
-			<a href="/about" class="link link-hover">About</a>
+			<a href="/playground" class="link link-hover">Playground</a>
 			<a href="https://discord.gg/vA9FxZghze" class="btn btn-outline"><DiscordLogo size={20}></DiscordLogo>Discord</a>
 			<ThemeController></ThemeController>
 		</div>
@@ -33,7 +32,7 @@
 				<!-- Page content here -->
 				<label for="header-drawer" class="btn btn-ghost drawer-button"><HamburgerMenu size={24}></HamburgerMenu></label>
 			</div> 
-			<div class="drawer-side z-50">
+			<div class="drawer-side">
 				<label for="header-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 				<ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-2">
 					<div class="mb-12">

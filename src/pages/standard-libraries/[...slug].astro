@@ -27,7 +27,7 @@ const tree = getArticleTree(collection)
 
 <StdlibLayout title={article.data.title} listOfTitles={parents}>
 	<div class="grid grid-cols-1 xl:grid-cols-[1fr_3fr_1fr] gap-16">
-		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose">
+		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose scrollbar-hidden">
 			<ul class="menu px-4 sticky py-8 top-0 min-h-full bg-base-100 border-r-2 border-r-base-200 text-base-content">
 				<CollectionTree tree={tree} slug={slug} base="standard-libraries"></CollectionTree>
 			</ul>

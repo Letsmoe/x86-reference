@@ -10,37 +10,37 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 		</div>
 	
 		<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-8">
-			<a href="/docs/meta" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-slate-300 dark:to-slate-600 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/meta" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-slate-300 dark:to-slate-600 animated-card" >
 				<div class="card-body">
-					<h2 class="card-title !mt-4 !mb-2">META Syntax</h2>
+					<h2 class="card-title !mt-4 !mb-2">META</h2>
 					<p>Syntax reference for writing compilers using META.</p>
 				</div>
 			</a>
-			<a href="/docs/meta-x" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-secondary transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/meta-x" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-secondary animated-card" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">METAx</h2>
 					<p>The Command-line interface for the META compiler toolchain.</p>
 				</div> 
 			</a>
-			<a href="/docs/metals" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-accent transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/metals" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-base-300 to-accent animated-card" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">METALS</h2>
 					<p>Common intermediate language specification.</p>
 				</div>
 			</a>
-			<a href="/docs/meta-test" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-violet-200 dark:from-violet-400 dark:to-base-100 to-base-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/meta-test" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-violet-200 dark:from-violet-400 dark:to-base-100 to-base-300 animated-card" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">META Testing</h2>
 					<p>Integrated testing/benchmarking for the META Compiler infrastructure.</p>
 				</div>
 			</a>
-			<a href="/docs/stack" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-red-200 dark:from-red-400 dark:to-base-100 to-base-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/stack" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-red-200 dark:from-red-400 dark:to-base-100 to-base-300 animated-card" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">Stack</h2>
 					<p>A language-agnostic package manager.</p>
 				</div>
 			</a>
-			<a href="/docs/meta-lisp" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-amber-200 dark:from-amber-400 dark:to-base-100 to-base-300 transition-all bg-pos-0 bg-size-200 duration-500 hover:bg-pos-100" >
+			<a href="/docs/meta-lisp" class="card w-full bg-base-300 shadow-xl no-underline cursor-pointer bg-gradient-to-tr from-amber-200 dark:from-amber-400 dark:to-base-100 to-base-300 animated-card" >
 				<div class="card-body">
 					<h2 class="card-title !mt-4 !mb-2">META Lisp</h2>
 					<p>A high-level lisp inspired language for writing fast and efficient code.</p>
@@ -48,6 +48,10 @@ import DocumentationLayout from "../../layouts/DocumentationLayout.astro";
 			</a>
 		</div>
 	</div>
-
-	
 </DocumentationLayout>
+
+<style>
+	.animated-card {
+		@apply transition-transform duration-300 hover:-translate-y-2;
+	}
+</style>

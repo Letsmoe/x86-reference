@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry, getEntry } from "astro:content";
 import DocumentationLayout from "#layouts/DocumentationLayout.astro";
 import HeadingTree from "#components/HeadingTree.svelte";
 import CollectionTree from "#components/CollectionTree.svelte";
@@ -27,13 +27,13 @@ const tree = getArticleTree(collection)
 ---
 
 <DocumentationLayout title={article.data.title} listOfTitles={parents}>
-	<div class="grid grid-cols-1 xl:grid-cols-[1fr_3fr_1fr] gap-16">
-		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose">
-			<ul class="menu px-4 sticky py-8 top-0 min-h-full bg-base-100 border-r-2 border-r-base-200 text-base-content">
+	<div class="grid grid-cols-1 xl:grid-cols-[1fr_3fr_1fr] gap-4">
+		<div class="xl:block hidden sticky top-36 h-[calc(100vh-9rem)] overflow-y-auto not-prose scrollbar-hidden">
+			<ul class="menu px-4 sticky py-8 top-0 min-h-full bg-base-100 border-r-2 border-r-base-200 text-base-content collection">
 				<CollectionTree tree={tree} slug={slug}></CollectionTree>
 			</ul>
 		</div>
-		<article class="my-8 px-4">
+		<article class="my-8 px-4 prose-base max-w-screen-md mx-auto">
 			<h1>{article.data.title}</h1>
 			<Content></Content>
 		</article>

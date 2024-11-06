@@ -38,7 +38,7 @@ Named counters allow for easier manipulation of source code. They keep track of 
 
 ```meta
 // Reserves 1 byte of space for the counter and set default value 0
-var counter: i8 = 0;
+[define [i8 counter] 0]
 
 // Increments the counter every time a # character is captured.
 LOOP = $("#" [+= counter 1])
@@ -46,18 +46,18 @@ LOOP = $("#" [+= counter 1])
 	[error-if [> counter 6] "Headings may only range from h1 to h6"]
 	// Match the rest of the heading until the newline character
 	.NOT(.C_NL)
-	->("<h" #counter ">" * "</h" #counter ">");
+	->("<h" *counter ">" * "</h" *counter ">");
 ```
 
 This program may be part of a Markdown to HTML Transpiler. It converts Markdown headings (`### Heading`) to HTML Headings (`<h3>Heading</h3>`). It implements some additional error handling logic. As you can see, the named counter `#counter` is used to keep track of the count of `#`  in the Markdown Source. Since `<h6>` is the max depth officially allowed in HTML, this Transpiler will throw an error if it exceeds that limit.
 
 ## Error Handling
 
-One of the most important things in compiler design are error messages. No one will be able to understand what went wrong without well-formed error messages. That's where the `@` error handling operator comes into play.
+One of the most important things in compiler design are error messages. No one will be able to understand what went wrong without well-formed error messages. That's where the error handling function comes into play.
 It captures any error that might have occurred in the preceding branch and outputs it with a maybe? helpful error message, that part really is up to you.
 
 ```meta
-DECLARATION = .ID "=" .STRING ";" @("Missing semicolon after declaration.");
+DECLARATION = .ID "=" .STRING (";" | .ERROR("Missing semicolon after declaration."));
 ```
 
 This example will output 
@@ -67,7 +67,7 @@ This example will output
 
 	11: name = "Joe";
 	12: name = "Moe"
-					^
+				   ^
 	13: name = "Go!";
 				
 Thrown by:
@@ -92,11 +92,11 @@ REPETITION_OPERATOR = "$"
 This is the implementation for the repetition operator written in META.
 
 ```meta
-var counter: i8 = 0;
+[define [i8 counter] 0]
 
 HEADING = $<1, 6>("#" [+= counter 1])
 	.NOT(.C_NL)
-	->("<h" #counter ">" * "</h" #counter ">");
+	->("<h" *counter ">" * "</h" *counter ">");
 ```
 
 ## Rule Arguments
