@@ -16,7 +16,7 @@
 						href={`/${base}/${node.entry.slug}`}
 						class:!text-primary={node.entry.slug == slug}
 						class:font-bold={depth == 0 || node.entry.slug == slug}
-						class="hover:text-primary text-opacity-95 text-primary-content py-1.5 px-1.5"
+						class="hover:text-primary text-opacity-95 text-base-content py-1.5 px-1.5"
 						>{node.entry.data.title}</a
 					>
 				</li>
@@ -52,6 +52,6 @@
 	ul > li:before {
 		content: counters(item, ".");
 		counter-increment: item;
-		@apply text-primary-content text-opacity-60 text-xs font-bold;
+		@apply text-base-content text-opacity-60 text-xs font-bold;
 	}
 </style>

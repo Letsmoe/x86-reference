@@ -12,36 +12,36 @@ export default {
 	daisyui: {
 		themes: [
 			{
-				retro: {
-					primary: "#ee9a95",
-					"primary-focus": "#e76b65",
-					"primary-content": "#252223",
+				light: {
+					primary: "#7c3aed",
+					"primary-focus": "#5b21b6",
+					"primary-content": "#ffffff",
 
-					secondary: "#a4cbb4",
-					"secondary-focus": "#85b79a",
-					"secondary-content": "#252223",
+					secondary: "#4f46e5",
+					"secondary-focus": "#3730a3",
+					"secondary-content": "#ffffff",
 
-					accent: "#fb923c",
-					"accent-focus": "#f97316",
-					"accent-content": "#252223",
+					accent: "#37cdbe",
+					"accent-focus": "#2ba69a",
+					"accent-content": "#ffffff",
 
-					neutral: "#18181b",
-					"neutral-focus": "#09090b",
-					"neutral-content": "#e4d8b4",
+					neutral: "#3b424e",
+					"neutral-focus": "#2a2e37",
+					"neutral-content": "#ffffff",
 
-					"base-100": "#ece3ca",
-					"base-200": "#e4d8b4",
-					"base-300": "#dbca9a",
-					"base-content": "#252223",
+					"base-100": "#ffffff",
+					"base-200": "#f9fafb",
+					"base-300": "#ced3d9",
+					"base-content": "#1e2734",
 
-					info: "#1c92f2",
-					success: "#009485",
-					warning: "#ff9900",
-					error: "#ff5724",
+					info: "#66c7ff",
+					success: "#87cf3a",
+					warning: "#e1d460",
+					error: "#ff6b6b",
 
 					"--rounded-box": "1rem",
-					"--rounded-btn": "1rem",
-					"--rounded-badge": ".4rem",
+					"--rounded-btn": ".5rem",
+					"--rounded-badge": "0.4rem",
 
 					"--animation-btn": ".25s",
 					"--animation-input": ".2s",

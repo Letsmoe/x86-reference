@@ -5,7 +5,6 @@ import * as fs from "fs"
 
 const app = express();
 
-
 const base = '/';
 app.use(base, express.static('dist/client/'));
 app.use(ssrHandler);

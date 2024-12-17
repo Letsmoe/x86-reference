@@ -21,15 +21,14 @@
 			<a href="/docs" class="link link-hover">Documentation</a>
 			<a href="/standard-libraries" class="link link-hover">Standard Library</a>
 			<a href="/metals" class="link link-hover">METALS</a>
-			<a href="/meta-lisp" class="link link-hover">META Lisp</a>
-			<a href="/playground" class="link link-hover">Playground</a>
+			<!-- <a href="/meta-lisp" class="link link-hover">META Lisp</a> -->
+			<!-- <a href="/playground" class="link link-hover">Playground</a> -->
 			<a href="https://discord.gg/vA9FxZghze" class="btn btn-outline"><DiscordLogo size={20}></DiscordLogo>Discord</a>
 			<ThemeController></ThemeController>
 		</div>
 		<div class="drawer w-auto md:hidden">
 			<input id="header-drawer" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content">
-				<!-- Page content here -->
 				<label for="header-drawer" class="btn btn-ghost drawer-button"><HamburgerMenu size={24}></HamburgerMenu></label>
 			</div> 
 			<div class="drawer-side">
@@ -42,9 +41,9 @@
 					<li><a href="/docs" class="link link-hover">Documentation</a></li>
 					<li><a href="/standard-libraries" class="link link-hover">Standard Library</a></li>
 					<li><a href="/metals" class="link link-hover">METALS</a></li>
-					<li><a href="/meta-lisp" class="link link-hover">META Lisp</a></li>
-					<li><a href="/stack" class="link link-hover">Stack</a></li>
-					<li><a href="/about" class="link link-hover">About</a></li>
+					<!-- <li><a href="/meta-lisp" class="link link-hover">META Lisp</a></li> -->
+					<!-- <li><a href="/stack" class="link link-hover">Stack</a></li> -->
+					<!-- <li><a href="/about" class="link link-hover">About</a></li> -->
 					<li class="mt-4"><a href="https://discord.gg/vA9FxZghze" class="btn btn-outline"><DiscordLogo size={20}></DiscordLogo>Discord</a></li>
 				</ul>
 			</div>

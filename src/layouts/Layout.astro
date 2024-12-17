@@ -3,6 +3,8 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.svelte';
 import "@fontsource/ubuntu-mono";
 import "../style/global.css"
+import CookieNotice from '#components/CookieNotice.svelte';
+import { AllowCookies } from '#components/types';
 interface Props {
 	title: string;
 	favicon?: string;
@@ -12,6 +14,7 @@ interface Props {
 const { title, favicon, favicondark } = Astro.props;
 
 const lightTheme = Astro.cookies.get('light')?.boolean() || false;
+const acceptedCookies = Astro.cookies.get("accepted-cookies")?.number() || AllowCookies.NotAnswered;
 ---
 
 <!doctype html>
@@ -32,5 +35,6 @@ const lightTheme = Astro.cookies.get('light')?.boolean() || false;
 			</div>
 		</main>
 		<Footer></Footer>
+		<CookieNotice acceptedCookies={acceptedCookies} client:load></CookieNotice>
 	</body>
 </html>

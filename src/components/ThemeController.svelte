@@ -15,7 +15,7 @@
 
 <button class="btn btn-square btn-ghost" on:click={toggleLightTheme}>
 	<div class="swap swap-rotate">
-		<input type="checkbox" class="theme-controller" hidden checked={$lightMode} value={"retro"} />
+		<input type="checkbox" class="theme-controller" hidden checked={$lightMode} value={"light"} />
 		<input type="checkbox" class="theme-controller" hidden checked={!$lightMode} value={"forest"} />
 	
 		<Sun size={24} class={$lightMode ? "swap-on" : "swap-off"} />

@@ -19,7 +19,7 @@ import ReactiveSvg from "#components/ReactiveSvg.svelte";
 					class="btn btn-outline btn-lg no-underline"
 					href="https://github.com/the-meta-lang"
 					target="_blank"><GithubLogo size={24} />View on GitHub</a>
-				<a href="/install" class="btn btn-primary btn-lg no-underline"
+				<a href="/install" class="btn btn-primary text-primary-content btn-lg no-underline"
 					>Get Started!</a>
 			</div>
 		</div>
@@ -35,7 +35,8 @@ import ReactiveSvg from "#components/ReactiveSvg.svelte";
 		</div>
 	</div>
 	<div class="hero py-16 bg-base-100 w-full">
-		<div class="hero-content flex flex-col lg:flex-row gap-8">
+		<div class="hero-content flex flex-col lg:flex-row gap-24">
+			<ReactiveImage srcdark="/images/snake-go-brrr-dark.svg" srclight="/images/snake-go-brrr.svg" class="w-2/3 lg:w-1/3" client:load></ReactiveImage>
 			<div class="w-full lg:w-2/3">
 				<h2 class="mb-8 mt-0">Stup** Fast</h2>
 				<p>
@@ -45,7 +46,6 @@ import ReactiveSvg from "#components/ReactiveSvg.svelte";
 				</p>
 				<p>To put that into perspective, META could compile itself recursively <strong>250 times</strong> without you even noticing any stutters while <strong>live reloading</strong></p>
 			</div>
-			<ReactiveImage srcdark="/images/snake-go-brrr-dark.svg" srclight="/images/snake-go-brrr.svg" class="w-2/3 lg:w-1/3" client:load></ReactiveImage>
 		</div>
 	</div>
 	<div class="hero py-16 bg-base-200 w-full">
@@ -55,7 +55,7 @@ import ReactiveSvg from "#components/ReactiveSvg.svelte";
 				<p>
 					It's easy to get lost when learning new languages. META comes with a comprehensive documentation so that you don't get lost in the process. Getting started is easy and you will see results right away!
 				</p>
-				<a class="btn btn-accent btn-lg no-underline" href="/docs">View Documentation</a>
+				<a class="btn btn-secondary text-secondary-content btn-lg no-underline" href="/docs">View Documentation</a>
 			</div>
 		</div>
 	</div>
