@@ -7,3 +7,4 @@ bun run build
 pm2 stop meta-lang.com
 pm2 delete meta-lang.com
 pm2 start server.mjs --name meta-lang.com
+pm2 save

@@ -11,7 +11,7 @@
 	lightMode.set(lightThemeEnabled);
 </script>
 
-<nav class="navbar bg-base-100 border-b-2 border-b-base-200 h-20 sticky top-0 z-20">
+<nav class="navbar bg-base-100 border-b border-b-base-300 h-20 sticky top-0 z-20">
 	<div class="flex flex-row justify-between w-full mx-auto px-8">
 		<a href="/" class="link link-hover text-xl">
 			<ReactiveSvg src={favicon} class="w-[54px] h-[54px]"></ReactiveSvg>
